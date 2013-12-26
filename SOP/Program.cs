@@ -10,6 +10,7 @@ namespace Proces_modul_nizszy
     {
         static void Main()
         {
+            //nie wiem po ch** ale tak o jest xD
         }
     }
 }
