@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SOP
+namespace Proces_modul_nizszy
 {
     class Semafor
     {

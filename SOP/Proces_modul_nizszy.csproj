@@ -7,7 +7,7 @@
     <ProjectGuid>{9128D93D-BDBE-43B0-96D5-8A21F2038797}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SOP</RootNamespace>
+    <RootNamespace>Proces_modul_nizszy</RootNamespace>
     <AssemblyName>SOP</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
