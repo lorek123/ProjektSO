@@ -11,18 +11,18 @@ namespace Proces_modul_nizszy
         string proces_name;
         Proces proces_next = new Proces();
         Proces proces_previous = new Proces();
-        public byte running;
-        public byte stopped;
-        public byte blocked;
+        public bool running;
+        public bool stopped;
+        public bool blocked;
         public int proces_estimated_time;
         public int proces_last_time;
 
         public Proces()
         {
             proces_name = "proces";
-            running = 0;
-            stopped = 0;
-            blocked = 0;
+            running = false;
+            stopped = false;
+            blocked = false;
             proces_next = null;
             proces_previous = null;
             proces_estimated_time = 0;
@@ -34,9 +34,9 @@ namespace Proces_modul_nizszy
             proces_name = name;
             proces_next = n;
             proces_previous = p;
-            running = 0;
-            blocked = 0;
-            stopped = 0;
+            running = false;
+            blocked = false;
+            stopped = false;
             proces_estimated_time = time;
             proces_last_time = 0;
         }

@@ -24,8 +24,8 @@ namespace Proces_modul_nizszy
             proces_indeks = min_czas();
             if (test[proces_indeks] != run)
             {
-                run.running = 0;
-                test[proces_indeks].running = 1;
+                run.running = false;
+                test[proces_indeks].running = true;
             } // uruchom nowy proces
             else
             {
@@ -47,7 +47,7 @@ namespace Proces_modul_nizszy
 
             foreach (Proces p in test)
             {
-                if (min > a.proces_estimated_time && a.blocked == 0 && a.stopped == 0)
+                if (min > a.proces_estimated_time && a.blocked == false && a.stopped == false)
                 {
                     min = a.proces_estimated_time;
                     x = test.IndexOf(p);
