@@ -8,6 +8,8 @@ namespace Modul_Nadzorczy.Modul
 {
     class Proces_nadzorczy
     {
-
+        string nazwa ="*IBSUP";
+        string wejscie = "*IN";
+        string wyjscie = "*OUT";
     }
 }
