@@ -8,7 +8,8 @@ namespace Proces_modul_nizszy
 {
     class Proces
     {
-        string proces_name;
+        /*PCB*/
+        public string proces_name;
         Proces proces_next = new Proces();
         Proces proces_previous = new Proces();
         public bool running;

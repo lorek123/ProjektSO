@@ -28,9 +28,9 @@ namespace Proces_modul_nizszy
             Console.WriteLine("Wykonuje program P semafora");
             value -= 1;
             /*kontynuuj*/
-            if (value < 0)
+            if (value > 0)
             {
-                //PCB na koniec listy prcesów, i przekazanie do scheduler'a
+                /*Dostep do danych dla procesu z listy oczekujacych*/
             }
         }
 
@@ -44,7 +44,6 @@ namespace Proces_modul_nizszy
             {
                 //URUCHOM PROCES
                 semafor_list_waiting.RemoveAt(0);
-
             }
         }
         /*xper*/

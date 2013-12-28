@@ -20,16 +20,21 @@ namespace Proces_modul_nizszy
             {
                 oblicz_czas(x);
             }
+            Console.WriteLine("Obliczone nowe czasy przewidywane do konca procesow");
 
             proces_indeks = min_czas();
             if (test[proces_indeks] != run)
             {
+                /*  uruchom nowy proces*/
                 run.running = false;
                 test[proces_indeks].running = true;
-            } // uruchom nowy proces
+                Console.WriteLine("Uruchomiono proces o nazwie" + test[proces_indeks].proces_name);
+            }
             else
             {
-            }// kontynuuj proces
+                /*nie zmieniaj i kontynuuj stary*/
+                Console.WriteLine("Kontynuujemy proces o nazwie " + test[proces_indeks].proces_name);
+            }
         }
 
 
