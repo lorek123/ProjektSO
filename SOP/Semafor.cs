@@ -13,8 +13,8 @@ namespace Proces_modul_nizszy
 
         public Semafor()
         {
-            value = 2;
-            tescik();
+            value = 5;
+            //tescik();
         }
 
         /*Odciecie 1 od wartosci semafora*/
@@ -62,7 +62,7 @@ namespace Proces_modul_nizszy
             semafor_list_waiting.RemoveAt(0);
         }
 
-        void tescik()
+       private void tescik()
         {
             Proces x, y, z;
             x = new Proces("x", null, null, 10);

@@ -17,7 +17,7 @@ namespace Proces_modul_nizszy
         /*glowna czesc algorytmu*/
         public SRT_zawiadowca(Proces run)
         {
-            
+            //tescik();
                 oblicz_czas(run);
                 foreach (Proces x in test)
                 {
@@ -84,7 +84,19 @@ namespace Proces_modul_nizszy
             return x;
         }
 
+        private void tescik()
+        {
+            Proces x, y, z;
+            x = new Proces("x", null, null, 10);
+            y = new Proces("y", x, null, 10);
+            z = new Proces("z", y, null, 10);
+            x.proces_next = y;
+            y.proces_next = z;
 
+            test.Add(x);
+            test.Add(y);
+            test.Add(z);
+        }
 
     }
 }
