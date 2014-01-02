@@ -13,7 +13,7 @@ namespace Proces_modul_nizszy
             try
             {
                 //SRT_zawiadowca planista = new SRT_zawiadowca(null);
-                Semafor x = new Semafor();
+               //Semafor x = new Semafor();
                 Console.ReadKey();
             }
             catch (Exception x)

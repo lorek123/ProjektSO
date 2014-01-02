@@ -13,7 +13,7 @@ namespace Proces_modul_nizszy
 
         public Semafor()
         {
-            value = 1;
+            value = 2;
             tescik();
         }
 
@@ -21,14 +21,14 @@ namespace Proces_modul_nizszy
         public void p_program(Proces x)
         {
             Console.WriteLine("Wykonuje program P semafora");
-            
+
             /*kontynuuj*/
             if (value > 0)
             {
                 /*Dostep do danych dla procesu z listy oczekujacych*/
                 Console.WriteLine("Operacja P: Przyznaje dostep do semafora");
                 x.semafor_info = true;
-                value -= 1;
+
             }
             else
             {
@@ -36,7 +36,7 @@ namespace Proces_modul_nizszy
                 Console.WriteLine("Operacja P: Brak dostepu - dodaje proces na liste oczekujacych");
                 semafor_list_waiting.Add(x);
             }
-           
+            value -= 1;
         }
 
         /*Dodanie 1 do wartosci semafora*/
@@ -45,17 +45,14 @@ namespace Proces_modul_nizszy
             Console.WriteLine("Wykonuje program V semafora");
             value += 1;
             /*kontynuuj*/
-            if (semafor_list_waiting.Count() > 0 && value > 0)
+            if (semafor_list_waiting.Count() > 0)
             {
                 Console.WriteLine("Operacja V: Przyznaje dostep procesowi z listy oczekujacych");
-                semafor_waiting();
+                semafor_waiting();       
             }
             else
             {
-                if(value > 0)
-                    Console.WriteLine("Operacja V: Lista oczekujacych procesow jest pusta");
-                else
-                    Console.WriteLine("Operacja V: Wartosc semafora < 0");
+                Console.WriteLine("Operacja V: Lista oczekujacych procesow pod semaforem jest pusta");
             }
         }
 
@@ -63,7 +60,6 @@ namespace Proces_modul_nizszy
         {
             Proces x = semafor_list_waiting[0];
             semafor_list_waiting.RemoveAt(0);
-            p_program(x);
         }
 
         void tescik()
