@@ -8,7 +8,7 @@ namespace Proces_modul_nizszy
 {
     class Procesor
     {
-        private int r0;
+        private int r0; //akumulator
         private int r1;
         private int r2;
         private int r3;

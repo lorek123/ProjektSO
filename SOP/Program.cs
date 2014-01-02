@@ -10,7 +10,18 @@ namespace Proces_modul_nizszy
     {
         static void Main()
         {
-            //nie wiem po ch** ale tak o jest xD
+            try
+            {
+                //SRT_zawiadowca planista = new SRT_zawiadowca(null);
+                Semafor x = new Semafor();
+                Console.ReadKey();
+            }
+            catch (Exception x)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(x.StackTrace);
+                Console.ResetColor();
+            }
         }
     }
 }

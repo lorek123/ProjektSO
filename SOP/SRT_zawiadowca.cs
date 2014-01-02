@@ -14,53 +14,76 @@ namespace Proces_modul_nizszy
         public int proces_indeks;
         private double a = 0.5;
 
-        SRT_zawiadowca(Proces run)
+        /*glowna czesc algorytmu*/
+        public SRT_zawiadowca(Proces run)
         {
-            foreach (Proces x in test)
-            {
-                oblicz_czas(x);
-            }
-            Console.WriteLine("Obliczone nowe czasy przewidywane do konca procesow");
+            
+                oblicz_czas(run);
+                foreach (Proces x in test)
+                {
+                    if (x.blocked == false && x.stopped == false)
+                    {
+                        oblicz_czas(x);
+                    }
+                }
+                Console.WriteLine("Obliczone nowe czasy przewidywane do konca procesow");
 
-            proces_indeks = min_czas();
-            if (test[proces_indeks] != run)
+                proces_indeks = min_czas(run);
+                if (proces_indeks >= 0)
+                {
+                    if (test[proces_indeks] != run)
+                    {
+                        /*  uruchom nowy proces*/
+                        run.running = false;
+                        test[proces_indeks].running = true;
+                        Console.WriteLine("Uruchomiono proces o nazwie " + test[proces_indeks].proces_name);
+                    }
+                    else
+                    {
+                        /*nie zmieniaj i kontynuuj stary*/
+                        Console.WriteLine("Kontynuujemy proces o nazwie " + test[proces_indeks].proces_name);
+                    }
+                }
+                else
+                    Console.WriteLine("Kontynuujemy proces o nazwie " + run.proces_name);
+            
+        }
+
+        /*obliczanie czasu procesow*/
+        void oblicz_czas(Proces test2)
+        {
+            if (test2 != null)
             {
-                /*  uruchom nowy proces*/
-                run.running = false;
-                test[proces_indeks].running = true;
-                Console.WriteLine("Uruchomiono proces o nazwie" + test[proces_indeks].proces_name);
+                tau = Convert.ToInt32(a * test2.proces_last_time + a * test2.proces_estimated_time);
+                test2.proces_estimated_time = tau;
+            }
+        }
+
+        /*wyszukiwanie minimalnego czasu procesu*/
+        int min_czas(Proces a)
+        {
+            Console.WriteLine("Wyszukiwanie min czasu procesu");
+            int x = -1;
+            int min = a.proces_estimated_time;
+            if (test.Count() > 0)
+            {
+                foreach (Proces p in test)
+                {
+                    if (min > p.proces_estimated_time && p.blocked == false && p.stopped == false)
+                    {
+                        min = p.proces_estimated_time;     
+                        x = test.IndexOf(p);
+                    }
+                }
             }
             else
             {
-                /*nie zmieniaj i kontynuuj stary*/
-                Console.WriteLine("Kontynuujemy proces o nazwie " + test[proces_indeks].proces_name);
+                Console.WriteLine("Nie ma zadnego procesu na liscie");
             }
-        }
-
-
-        void oblicz_czas(Proces test2)
-        {
-            tau = Convert.ToInt32(a * test2.proces_last_time + a * test2.proces_estimated_time);
-            test2.proces_estimated_time = tau;
-        }
-
-        int min_czas()
-        {
-            Proces a = new Proces();
-            int x = 0;
-            int min = a.proces_estimated_time;
-
-            foreach (Proces p in test)
-            {
-                if (min > a.proces_estimated_time && a.blocked == false && a.stopped == false)
-                {
-                    min = a.proces_estimated_time;
-                    x = test.IndexOf(p);
-                }
-            }
-
+            
             return x;
         }
+
 
 
     }
