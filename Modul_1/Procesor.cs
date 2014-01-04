@@ -12,7 +12,7 @@ namespace Proces_modul_nizszy
         private int r1;
         private int r2;
         private int r3;
-        private int r4;
+        private int lr;
 
         /*getery*/
         int get_r0()
@@ -35,9 +35,9 @@ namespace Proces_modul_nizszy
             return r3;
         }
 
-        int get_r4()
+        int get_lr()
         {
-            return r4;
+            return lr;
         }
 
 
@@ -62,9 +62,9 @@ namespace Proces_modul_nizszy
             r3 = value;
         }
 
-        void set_r4(int value)
+        void set_lr(int value)
         {
-            r4 = value;
+            lr = value;
         }
 
 

@@ -12,10 +12,10 @@ namespace Proces_modul_nizszy
         {
             try
             {
-                /* Proces testowy = new Proces("Testowy", null, null, 10);
-                 * SRT_zawiadowca planista = new SRT_zawiadowca(null);
-                 * Semafor x = new Semafor();
-                 */
+                /*Proces testowy = new Proces("Testowy", null, null, 10);
+                *SRT_zawiadowca planista = new SRT_zawiadowca(testowy);
+                *Semafor x = new Semafor();
+                */
                 Console.ReadKey();
             }
             catch (Exception x)
@@ -23,6 +23,7 @@ namespace Proces_modul_nizszy
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(x.StackTrace);
                 Console.ResetColor();
+                Console.ReadKey();
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proces_modul_nizszy", "SOP\Proces_modul_nizszy.csproj", "{9128D93D-BDBE-43B0-96D5-8A21F2038797}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Proces_modul_nizszy", "Modul_1\Proces_modul_nizszy.csproj", "{9128D93D-BDBE-43B0-96D5-8A21F2038797}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
