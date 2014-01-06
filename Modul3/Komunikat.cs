@@ -10,16 +10,16 @@ namespace Modul3
     {
         public Proces sender_pointer;
         public Proces next_pointer;
-        public int size;
+        //public int size;
         public string message;
-        public int message_size;
-        public Komunikat(Proces name, Proces n, int size, string wiadomosc)
+        //public int message_size;
+        public Komunikat(Proces name, Proces n, string wiadomosc)
         {
             sender_pointer = name;
             next_pointer = n;
-            size = name.size();
+            //size = name.size();
             message = wiadomosc;
-            message_size = wiadomosc.Length;
+            //message_size = wiadomosc.Length;
 
         }
 
@@ -29,7 +29,13 @@ namespace Modul3
 
         }
 
-        public void Czytaj_Komunikat(string komunikat)
+        public void Czytaj_Komunikat(string komunikat, Procesy nadawca)
+        {
+
+
+        }
+
+        public void Wysylaj_Komunikat(string komunikat, Procesy odbiorca)
         {
 
 

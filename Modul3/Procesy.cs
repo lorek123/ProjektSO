@@ -17,7 +17,7 @@ namespace Modul3
         //do listy wszystkich grup procesow dodaje nowa grupe procesow
         public Procesy()
         {
-                        
+
         }
 
 
@@ -25,27 +25,47 @@ namespace Modul3
         public void tworzenie_procesu(string nazwa, int numer, int czas)
         {
             istnieje = false;
-        
+
             foreach (Proces proces in grupy_procesow)
-              {
-                   if (proces.group_indeks == numer && proces.proces_name == nazwa)
-                      {
-                          istnieje = true;
-                          tekst.Komunikat_bledu();            //ZROBIC TO
-                          break;
-                      }
-                    
+            {
+                if (proces.group_indeks == numer && proces.proces_name == nazwa)
+                {
+                    istnieje = true;
+                    tekst.Komunikat_bledu();            //ZROBIC TO
+                    break;
+                }
+
             }
 
             if (!istnieje)
             {
                 grupy_procesow.Add(new Proces(nazwa, czas, numer));
                 tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);      // ZROBIC   , komunikat o zakonczeniu                            
-                
+
             }
         }
 
-       
+        //zatrzymanie procesu
+        public void zatrzymanie_procesu(string nazwa, int numer)
+        {
+
+            foreach (Proces proces in grupy_procesow)
+            {
+
+                if (proces.group_indeks == numer && proces.proces_name == nazwa)
+                {
+                    proces.running = false;
+                    tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
+                    break;
+                }
+
+
+
+            }
+
+        }
+
+
         //usuniecie procesu
         public void usuniecie_procesu(string nazwa, int numer)
         {
@@ -81,19 +101,36 @@ namespace Modul3
 
         }
 
-        public void znalezienie_procesu(string nazwa)
+        public string znalezienie_procesu()
         {
             istnieje = false;
+            int licznik = 0;
+            string nazwa_procesu;
             foreach (Proces proces in grupy_procesow)
             {
-                if (proces.proces_name == nazwa){
-                    Zatrzymanie_zlecenia("Znaleziono proces" + nazwa + "w grupie o indeksie" + proces.group_indeks);
+                if (proces.running)
+                {
+                    istnieje = true;
+                    licznik = grupy_procesow.IndexOf(proces);
+                    tekst.Zatrzymanie_zlecenia("Znaleziono proces" + nazwa + "w grupie o indeksie" + proces.group_indeks);
+                    break;
 
                 }
-                break;
+            }
+
+            if (istnieje)
+            {
+                nazwa_procesu = grupy_procesow[licznik].proces_name;
+                return nazwa_procesu;
+
+            }
+            else
+            {
+                tekst.Komunikat_bledu();
+            }
+
+
         }
-
-
-
     }
+    
 }
