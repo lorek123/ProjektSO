@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proces_modul_nizszy
 {
-    class Procesor
+    public class Procesor
     {
         private int r0; //akumulator
         private int r1;

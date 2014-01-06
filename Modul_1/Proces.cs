@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proces_modul_nizszy
 {
-    class Proces
+    public class Proces
     {
         /*PCB*/
         public string proces_name;

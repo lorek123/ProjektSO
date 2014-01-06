@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proces_modul_nizszy
 {
-    class Semafor
+    public class Semafor
     {
         private int value;
         public List<Proces> semafor_list_waiting = new List<Proces>();

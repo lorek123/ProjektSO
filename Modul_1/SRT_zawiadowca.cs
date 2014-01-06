@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Proces_modul_nizszy
 {
-    class SRT_zawiadowca
+    public class SRT_zawiadowca
     {
-
-        public List<Proces> test = new List<Proces>();
+        public List<Proces> test = new List<Proces>(); //lista testowa, ktora bedzie zamieniona przez grupy_procesow z Modul3s
         public int tau;
         public int proces_indeks;
         private double a = 0.5;
@@ -18,35 +18,36 @@ namespace Proces_modul_nizszy
         public SRT_zawiadowca(Proces run)
         {
             //tescik();
-                oblicz_czas(run);
-                foreach (Proces x in test)
-                {
-                    if (x.blocked == false && x.stopped == false)
-                    {
-                        oblicz_czas(x);
-                    }
-                }
-                Console.WriteLine("Obliczone nowe czasy przewidywane do konca procesow");
+            oblicz_czas(run);
 
-                proces_indeks = min_czas(run);
-                if (proces_indeks >= 0)
+            foreach (Proces x in test)
+            {
+                if (x.blocked == false && x.stopped == false)
                 {
-                    if (test[proces_indeks] != run)
-                    {
-                        /*  uruchom nowy proces*/
-                        run.running = false;
-                        test[proces_indeks].running = true;
-                        Console.WriteLine("Uruchomiono proces o nazwie " + test[proces_indeks].proces_name);
-                    }
-                    else
-                    {
-                        /*nie zmieniaj i kontynuuj stary*/
-                        Console.WriteLine("Kontynuujemy proces o nazwie " + test[proces_indeks].proces_name);
-                    }
+                    oblicz_czas(x);
+                }
+            }
+            Console.WriteLine("Obliczone nowe czasy przewidywane do konca procesow");
+
+            proces_indeks = min_czas(run);
+            if (proces_indeks >= 0)
+            {
+                if (test[proces_indeks] != run)
+                {
+                    /*  uruchom nowy proces*/
+                    run.running = false;
+                    test[proces_indeks].running = true;
+                    Console.WriteLine("Uruchomiono proces o nazwie " + test[proces_indeks].proces_name);
                 }
                 else
-                    Console.WriteLine("Kontynuujemy proces o nazwie " + run.proces_name);
-            
+                {
+                    /*nie zmieniaj i kontynuuj stary*/
+                    Console.WriteLine("Kontynuujemy proces o nazwie " + test[proces_indeks].proces_name);
+                }
+            }
+            else
+                Console.WriteLine("Kontynuujemy proces o nazwie " + run.proces_name);
+
         }
 
         /*obliczanie czasu procesow*/
@@ -71,7 +72,7 @@ namespace Proces_modul_nizszy
                 {
                     if (min > p.proces_estimated_time && p.blocked == false && p.stopped == false)
                     {
-                        min = p.proces_estimated_time;     
+                        min = p.proces_estimated_time;
                         x = test.IndexOf(p);
                     }
                 }
@@ -80,7 +81,7 @@ namespace Proces_modul_nizszy
             {
                 Console.WriteLine("Nie ma zadnego procesu na liscie");
             }
-            
+
             return x;
         }
 
