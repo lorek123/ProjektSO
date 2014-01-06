@@ -9,21 +9,20 @@ namespace Modul_Nadzorczy
 {
     class Ladowanie
     {
-        void Load(int pamiec) {
+        void Load() {
             string temp;
-            while (true) {
-                temp= getline();
+            for (int i = 0; i <= Proces_nadzorczy.memory.Count();i++ )
+            {
+                temp = getline();
+                Interpreter.find(temp);
 
             }
+
         
         }
 
         int wielkosc_pamieci;
         private string getline() { return "a"; }
-        private bool czyPamiecJestDostepna(int wielkosc_pamieci)
-        {
-            return true; 
-        }
         bool utworz_urzadzenie_wejscia(string nazwa) { return true; }
         bool utworz_urzadzenie_wyjscia(string nazwa) { return true; }
 
@@ -33,6 +32,7 @@ namespace Modul_Nadzorczy
         }
         private void job()
         {
+            
             string aktualnaLinia;
             aktualnaLinia = getline();
 
@@ -44,15 +44,16 @@ namespace Modul_Nadzorczy
 
             string[] daneJob = aktualnaLinia.Split(',');
             daneJob[1].TrimEnd('K');
-            if (!czyPamiecJestDostepna(Convert.ToInt32(daneJob[1])))
+      /*      if (!czyPamiecJestDostepna(Convert.ToInt32(daneJob[1])))
             {
                 expunge();
                 return;
             }
-            wielkosc_pamieci = Convert.ToInt32(daneJob[1]);
+       */
+        //    wielkosc_pamieci = Convert.ToInt32(daneJob[1]);
             scan(daneJob[2]);
             scan(daneJob[3]);
-            Load(wielkosc_pamieci);
+            Load();
         }
         private bool scan(string dane)
         {
