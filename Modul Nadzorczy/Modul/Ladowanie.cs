@@ -4,18 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Modul_Nadzorczy
 {
     class Ladowanie
     {
-        void Ladowanie() { }
+        void Load(int pamiec) {
+            string temp;
+            while (true) {
+                temp= getline();
+
+            }
+        
+        }
 
         int wielkosc_pamieci;
         private string getline() { return "a"; }
         private bool czyPamiecJestDostepna(int wielkosc_pamieci)
         {
-            return true;
-            //do_manosia_o_pamiec(wielkosc_pamieci); 
+            return true; 
         }
         bool utworz_urzadzenie_wejscia(string nazwa) { return true; }
         bool utworz_urzadzenie_wyjscia(string nazwa) { return true; }
@@ -45,7 +52,7 @@ namespace Modul_Nadzorczy
             wielkosc_pamieci = Convert.ToInt32(daneJob[1]);
             scan(daneJob[2]);
             scan(daneJob[3]);
-
+            Load(wielkosc_pamieci);
         }
         private bool scan(string dane)
         {

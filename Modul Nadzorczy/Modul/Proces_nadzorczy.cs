@@ -11,5 +11,6 @@ namespace Modul_Nadzorczy.Modul
         string nazwa ="*IBSUP";
         string wejscie = "*IN";
         string wyjscie = "*OUT";
+        public List<string> memory;
     }
 }

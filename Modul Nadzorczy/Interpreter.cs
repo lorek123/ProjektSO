@@ -6,8 +6,46 @@ using System.Threading.Tasks;
 
 namespace Modul_Nadzorczy
 {
-    class Interpreter
+    static class Interpreter
     {
+        void find(string rozkaz) {
+            string temp;
+            temp= rozkaz.Split(" ".ToCharArray()).First();
+            switch (temp)
+            {
+
+                case  "dodaj":
+                    dodaj(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
+                    break;
+                case "odejmij":
+                    odejmij(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
+                    break;
+                case "pomnoz":
+                    pomnoz(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
+                    break;
+                case "podziel":
+                    podziel(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
+                    break;
+                case "zeruj" :
+                    zeruj();
+                    break;
+                case "zakoncz" :
+                    zakoncz();
+                    break;
+                case"zakoncz_blad":
+                    zakoncz_blad();
+                    break;
+                case "skok_zero":
+                    skok_zero(rozkaz.Split(" ".ToCharArray()).Last()); 
+            
+                    break;
+                
+                    case "skok_nzero":
+                    skok_zero(rozkaz.Split(" ".ToCharArray()).Last()); 
+                    break;
+            }
+        
+        }
         void dodaj(int a) {
             Procesor.set_r0(Procesor.get_r0() + a);
         }
@@ -31,10 +69,17 @@ namespace Modul_Nadzorczy
         void zeruj() {
             Procesor.set_r0(0);
         }
-        void zakoncz_blad(Exception Exception) { }
+        void zakoncz_blad() { }
         void zakoncz() { }
-        void skok_zero(string a) { }
-        void skok_nzero(string a) { }
+        void skok_zero(string a, int i) 
+        {
+            i= Modul.Proces_nadzorczy.memory.FindIndex(a);
+
+        }
+        int skok_nzero(string a, int i)
+        {
+           i = Modul.Proces_nadzorczy.memory.FindIndex(a);
+        }
         void wypisz(string a) { }
     }
 }
