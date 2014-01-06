@@ -22,5 +22,22 @@ namespace Modul3
             message_size = wiadomosc.Length;
 
         }
+
+        public void Zatrzymanie_zlecenia(string wiadomosc)
+        {
+            Console.WriteLine(wiadomosc);
+
+        }
+
+        public void Czytaj_Komunikat(string komunikat)
+        {
+
+
+        }
+
+        public void Komunikat_bledu()
+        {
+            Console.WriteLine("Wystapil blad");
+        }
     }
 }
