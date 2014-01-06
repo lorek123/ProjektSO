@@ -60,6 +60,7 @@ namespace Proces_modul_nizszy
         {
             Proces x = semafor_list_waiting[0];
             semafor_list_waiting.RemoveAt(0);
+            //zwróć proces do listy
         }
 
        private void tescik()
