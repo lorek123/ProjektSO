@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Modul3
 {
-    class Procesy
+   public class Procesy
     {
         //public List<Procesy> lista_procesow = new List<Procesy>();
         public List<Proces> grupy_procesow = new List<Proces>();
@@ -112,7 +112,7 @@ namespace Modul3
                 {
                     istnieje = true;
                     licznik = grupy_procesow.IndexOf(proces);
-                    tekst.Zatrzymanie_zlecenia("Znaleziono proces" + nazwa + "w grupie o indeksie" + proces.group_indeks);
+                    tekst.Zatrzymanie_zlecenia("Znaleziono proces" + proces.proces_name + "w grupie o indeksie" + proces.group_indeks);
                     break;
 
                 }

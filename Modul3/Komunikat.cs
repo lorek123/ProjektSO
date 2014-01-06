@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modul3
 {
-    class Komunikat
+    public class Komunikat
     {
         public Proces sender_pointer;
         public Proces next_pointer;
