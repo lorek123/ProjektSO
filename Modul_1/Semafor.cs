@@ -66,9 +66,9 @@ namespace Proces_modul_nizszy
        private void tescik()
         {
             Proces x, y, z;
-            x = new Proces("x", null, null, 10);
-            y = new Proces("y", null, null, 10);
-            z = new Proces("z", null, null, 10);
+            x = new Proces("x", 10, 0);
+            y = new Proces("y", 10, 0);
+            z = new Proces("z", 10, 0);
 
             p_program(x);
             p_program(y);
