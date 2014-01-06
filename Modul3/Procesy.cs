@@ -31,7 +31,7 @@ namespace Modul3
                 if (proces.group_indeks == numer && proces.proces_name == nazwa)
                 {
                     istnieje = true;
-                    tekst.Komunikat_bledu();            //ZROBIC TO
+                    tekst.Komunikat_bledu();            
                     break;
                 }
 
@@ -40,7 +40,7 @@ namespace Modul3
             if (!istnieje)
             {
                 grupy_procesow.Add(new Proces(nazwa, czas, numer));
-                tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);      // ZROBIC   , komunikat o zakonczeniu                            
+                tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);                                
 
             }
         }
@@ -58,8 +58,6 @@ namespace Modul3
                     tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
                     break;
                 }
-
-
 
             }
 
