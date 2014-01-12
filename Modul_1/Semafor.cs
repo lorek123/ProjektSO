@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proces_modul_nizszy
 {
-    class Semafor
+    public class Semafor
     {
         private int value;
         public List<Proces> semafor_list_waiting = new List<Proces>();
@@ -60,14 +60,15 @@ namespace Proces_modul_nizszy
         {
             Proces x = semafor_list_waiting[0];
             semafor_list_waiting.RemoveAt(0);
+            //zwróć proces do listy
         }
 
        private void tescik()
         {
             Proces x, y, z;
-            x = new Proces("x", null, null, 10);
-            y = new Proces("y", null, null, 10);
-            z = new Proces("z", null, null, 10);
+            x = new Proces("x", 10, 0);
+            y = new Proces("y", 10, 0);
+            z = new Proces("z", 10, 0);
 
             p_program(x);
             p_program(y);

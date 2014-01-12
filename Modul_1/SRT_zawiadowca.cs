@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proces_modul_nizszy
 {
-    class SRT_zawiadowca
+    public class SRT_zawiadowca
     {
 
         public List<Proces> test = new List<Proces>(); //lista testowa
@@ -89,11 +89,9 @@ namespace Proces_modul_nizszy
         private void tescik()
         {
             Proces x, y, z;
-            x = new Proces("x", null, null, 10);
-            y = new Proces("y", x, null, 10);
-            z = new Proces("z", y, null, 10);
-            x.proces_next = y;
-            y.proces_next = z;
+            x = new Proces("x", 10, 0);
+            y = new Proces("y", 10, 0);
+            z = new Proces("z", 10, 0);
 
             test.Add(x);
             test.Add(y);

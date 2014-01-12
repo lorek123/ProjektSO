@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Proces_modul_nizszy
 {
-    class Program
+    public class Program
     {
         static void Main()
         {
             try
             {
-                /*Proces testowy = new Proces("Testowy", null, null, 10);
+                /*Proces testowy = new Proces("Testowy", 10, 0);
                 *SRT_zawiadowca planista = new SRT_zawiadowca(testowy);
                 *Semafor x = new Semafor();
                 */
