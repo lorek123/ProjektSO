@@ -18,6 +18,8 @@ namespace Proces_modul_nizszy
         public int proces_estimated_time;
         public int proces_last_time;
         public bool semafor_info;
+        public bool czy_sprawdzony;
+        public int[] cpu_stan = new int[5];
 
         public Proces(string name, Proces n, Proces p, int time)
         {
@@ -30,6 +32,16 @@ namespace Proces_modul_nizszy
             proces_estimated_time = time;
             proces_last_time = 0;
             semafor_info = false;
+            czy_sprawdzony = true;
+        }
+
+        public void cpu_stan_zapisz(Procesor x)
+        {
+            cpu_stan[0] = x.get_r0();
+            cpu_stan[1] = x.get_r1();
+            cpu_stan[2] = x.get_r2();
+            cpu_stan[3] = x.get_r3();
+            cpu_stan[4] = x.get_lr();
         }
 
        public void wyswietl()

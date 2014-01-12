@@ -9,7 +9,7 @@ namespace Proces_modul_nizszy
     class SRT_zawiadowca
     {
 
-        public List<Proces> test = new List<Proces>();
+        public List<Proces> test = new List<Proces>(); //lista testowa
         public int tau;
         public int proces_indeks;
         private double a = 0.5;
@@ -19,7 +19,7 @@ namespace Proces_modul_nizszy
         {
             //tescik();
                 oblicz_czas(run);
-                foreach (Proces x in test)
+                foreach (Proces x in grupy_procesow)
                 {
                     if (x.blocked == false && x.stopped == false)
                     {
@@ -31,17 +31,18 @@ namespace Proces_modul_nizszy
                 proces_indeks = min_czas(run);
                 if (proces_indeks >= 0)
                 {
-                    if (test[proces_indeks] != run)
+                    if (grupy_procesow[proces_indeks] != run)
                     {
                         /*  uruchom nowy proces*/
                         run.running = false;
-                        test[proces_indeks].running = true;
-                        Console.WriteLine("Uruchomiono proces o nazwie " + test[proces_indeks].proces_name);
+                        run.czy_sprawdzony = false;
+                        grupy_procesow[proces_indeks].running = true;
+                        Console.WriteLine("Uruchomiono proces o nazwie " + grupy_procesow[proces_indeks].proces_name);
                     }
                     else
                     {
                         /*nie zmieniaj i kontynuuj stary*/
-                        Console.WriteLine("Kontynuujemy proces o nazwie " + test[proces_indeks].proces_name);
+                        Console.WriteLine("Kontynuujemy proces o nazwie " + grupy_procesow[proces_indeks].proces_name);
                     }
                 }
                 else
@@ -50,12 +51,13 @@ namespace Proces_modul_nizszy
         }
 
         /*obliczanie czasu procesow*/
-        void oblicz_czas(Proces test2)
+        void oblicz_czas(Proces x)
         {
-            if (test2 != null)
+            if (x != null && x.czy_sprawdzony == false)
             {
-                tau = Convert.ToInt32(a * test2.proces_last_time + a * test2.proces_estimated_time);
-                test2.proces_estimated_time = tau;
+                tau = Convert.ToInt32(a * x.proces_last_time + a * x.proces_estimated_time);
+                x.proces_estimated_time = tau;
+                x.czy_sprawdzony = true;
             }
         }
 
@@ -65,9 +67,9 @@ namespace Proces_modul_nizszy
             Console.WriteLine("Wyszukiwanie min czasu procesu");
             int x = -1;
             int min = a.proces_estimated_time;
-            if (test.Count() > 0)
+            if (grupy_procesow.Count() > 0)
             {
-                foreach (Proces p in test)
+                foreach (Proces p in grupy_procesow)
                 {
                     if (min > p.proces_estimated_time && p.blocked == false && p.stopped == false)
                     {
