@@ -8,7 +8,7 @@ namespace Modul_Nadzorczy
 {
     static class Interpreter
     {
-        void find(string rozkaz) {
+        public void find(string rozkaz) {
             string temp;
             temp= rozkaz.Split(" ".ToCharArray()).First();
             switch (temp)
@@ -36,11 +36,11 @@ namespace Modul_Nadzorczy
                     zakoncz_blad();
                     break;
                 case "skok_zero":
-                    skok_zero(rozkaz.Split(" ".ToCharArray()).Last()); 
+                    skok_zero(rozkaz.Split(" ".ToCharArray()).Last() ); 
             
                     break;
                 
-                    case "skok_nzero":
+                case "skok_nzero":
                     skok_zero(rozkaz.Split(" ".ToCharArray()).Last()); 
                     break;
             }
@@ -71,14 +71,29 @@ namespace Modul_Nadzorczy
         }
         void zakoncz_blad() { }
         void zakoncz() { }
-        void skok_zero(string a, int i) 
+        int skok_zero(string a, int i) 
         {
-            i= Modul.Proces_nadzorczy.memory.FindIndex(a);
-
+            if (Procesor.get_r0()==0)
+            {i= Modul.Proces_nadzorczy.memory.FindIndex(a);
+            return i;
+            } 
+            else
+            {
+                return i;
+            }
+            
         }
         int skok_nzero(string a, int i)
         {
-           i = Modul.Proces_nadzorczy.memory.FindIndex(a);
+            if (Procesor.get_r0() != 0)
+            {
+                i = Modul.Proces_nadzorczy.memory.FindIndex(a);
+                return i;
+            }
+            else
+            {
+                return i;
+            }
         }
         void wypisz(string a) { }
     }
