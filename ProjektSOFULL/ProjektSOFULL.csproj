@@ -57,12 +57,16 @@
     <Compile Include="modul_1\SRT_zawiadowca.cs" />
     <Compile Include="modul_3\Komunikat.cs" />
     <Compile Include="modul_3\Procesy.cs" />
+    <Compile Include="modul_4\urzadzenie.cs" />
     <Compile Include="modul_5\Interpreter.cs" />
     <Compile Include="modul_5\IPLRTN.cs" />
     <Compile Include="modul_5\Ladowanie.cs" />
     <Compile Include="modul_5\Proces_nadzorczy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -72,6 +76,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,7 +92,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="modul_2\" />
-    <Folder Include="modul_4\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

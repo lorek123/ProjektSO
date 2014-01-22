@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektSOFULL.modul_1
 {
-    class SRT_zawiadowca
-    {
+
         public class SRT_zawiadowca
         {
 
@@ -102,5 +101,4 @@ namespace ProjektSOFULL.modul_1
 
         }
 
-    }
 }
