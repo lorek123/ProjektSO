@@ -10,6 +10,7 @@ namespace ProjektSOFULL.modul_5
     {
         IPLRTN()
         {
+            //hello
         }
     }
 }
