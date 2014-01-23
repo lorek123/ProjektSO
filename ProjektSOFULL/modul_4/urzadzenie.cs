@@ -13,6 +13,7 @@ namespace ProjektSOFULL.modul_4
         public void przyjmij_komunikat(string komunikat)
         {
             //append to drukarka
-        
+
+        }
     }
 }

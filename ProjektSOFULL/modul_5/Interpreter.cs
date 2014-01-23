@@ -17,6 +17,7 @@ namespace ProjektSOFULL.modul_5
 
                     case "dodaj":
                         dodaj(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
+                        
                         break;
                     case "odejmij":
                         odejmij(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));

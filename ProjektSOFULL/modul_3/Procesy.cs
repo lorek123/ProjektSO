@@ -9,7 +9,7 @@ namespace ProjektSOFULL.modul_3
     public class Procesy
     {
         //public List<Procesy> lista_procesow = new List<Procesy>();
-        public List<Proces> grupy_procesow = new List<Proces>();
+        public List<modul_1.Proces> grupy_procesow = new List<modul_1.Proces>();
         private bool istnieje;
         Komunikat tekst;
 
@@ -25,7 +25,7 @@ namespace ProjektSOFULL.modul_3
         {
             istnieje = false;
 
-            foreach (Proces proces in grupy_procesow)
+            foreach (modul_1.Proces proces in grupy_procesow)
             {
                 if (proces.group_indeks == numer && proces.proces_name == nazwa)
                 {
@@ -38,7 +38,7 @@ namespace ProjektSOFULL.modul_3
 
             if (!istnieje)
             {
-                grupy_procesow.Add(new Proces(nazwa, czas, numer));
+                grupy_procesow.Add(new modul_1.Proces(nazwa, czas, numer));
                 tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);
 
             }
@@ -48,7 +48,7 @@ namespace ProjektSOFULL.modul_3
         public void zatrzymanie_procesu(string nazwa, int numer)
         {
 
-            foreach (Proces proces in grupy_procesow)
+            foreach (modul_1.Proces proces in grupy_procesow)
             {
 
                 if (proces.group_indeks == numer && proces.proces_name == nazwa)
@@ -69,7 +69,7 @@ namespace ProjektSOFULL.modul_3
             istnieje = false;
             int licznik = 0;
 
-            foreach (Proces proces in grupy_procesow)
+            foreach (modul_1.Proces proces in grupy_procesow)
             {
                 if (proces.group_indeks == numer && proces.proces_name == nazwa)
                 {
@@ -103,7 +103,7 @@ namespace ProjektSOFULL.modul_3
             istnieje = false;
             int licznik = 0;
             string nazwa_procesu;
-            foreach (Proces proces in grupy_procesow)
+            foreach (modul_1.Proces proces in grupy_procesow)
             {
                 if (proces.running)
                 {
