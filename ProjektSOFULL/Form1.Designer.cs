@@ -50,7 +50,6 @@
             this.czytnik_1.Name = "czytnik_1";
             this.czytnik_1.Size = new System.Drawing.Size(192, 195);
             this.czytnik_1.TabIndex = 0;
-            this.czytnik_1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -59,7 +58,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(192, 195);
             this.textBox2.TabIndex = 1;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // czytnik_2
             // 
@@ -69,7 +67,6 @@
             this.czytnik_2.Name = "czytnik_2";
             this.czytnik_2.Size = new System.Drawing.Size(192, 195);
             this.czytnik_2.TabIndex = 2;
-            this.czytnik_2.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
@@ -78,7 +75,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(307, 409);
             this.textBox4.TabIndex = 3;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // textBox5
             // 
@@ -87,7 +83,6 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(192, 195);
             this.textBox5.TabIndex = 4;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // label1
             // 
@@ -97,7 +92,6 @@
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Czytnik 1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -107,7 +101,6 @@
             this.label2.Size = new System.Drawing.Size(50, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Czytnik 2";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -174,8 +167,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.czytnik_1);
             this.Name = "Form1";
-            this.Text = "System SO FULL";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Two-men project";
             this.ResumeLayout(false);
             this.PerformLayout();
 

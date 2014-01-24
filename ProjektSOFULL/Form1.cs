@@ -21,27 +21,12 @@ namespace ProjektSOFULL
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
         //zaladuj 1
         private void button1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(czytnik_1.Text);
             pomocniczy = czytnik_1.Text;
             czytnik1_string = pomocniczy.Split('\n');
-
         }
 
         public string[] get_czynik1()
@@ -51,7 +36,6 @@ namespace ProjektSOFULL
         //zaladuj 2
         private void button2_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(czytnik_2.Text);
             pomocniczy = czytnik_2.Text;
             czytnik2_string = pomocniczy.Split('\n');
         }
@@ -59,35 +43,6 @@ namespace ProjektSOFULL
         {
             return czytnik2_string;
         }
-        //czytnik 1
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        //czytnik 2
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //drukarka 1
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        //drukarka 2
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        //logger
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
