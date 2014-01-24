@@ -28,28 +28,11 @@ namespace ProjektSOFULL
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());
-<<<<<<< HEAD
-                
-=======
                 Procesor CPU = new Procesor();
                 Procesy CPU_man = new Procesy();
                 /*Proces example = new Proces("x", 10, 10);
                 SRT_zawiadowca planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
                 planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);*/
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 068e7fd3a438505560e56768747bda8a64b3d942
-=======
->>>>>>> 068e7fd3a438505560e56768747bda8a64b3d942
-=======
->>>>>>> 068e7fd3a438505560e56768747bda8a64b3d942
-=======
->>>>>>> 068e7fd3a438505560e56768747bda8a64b3d942
-=======
->>>>>>> 068e7fd3a438505560e56768747bda8a64b3d942
                 Console.ReadKey();
             }
             catch (Exception x)
