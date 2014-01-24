@@ -16,21 +16,19 @@ namespace ProjektSOFULL
         [STAThread]
         static void Main()
         {
+            /*Proces example = new Proces("x", 10, 10);
+                SRT_zawiadowca planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
+                planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);*/
 
             try
             {
-                /*Proces testowy = new Proces("Testowy", 10, 0);
-                *SRT_zawiadowca planista = new SRT_zawiadowca(testowy);
-                *Semafor x = new Semafor();
-                */
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
-                Procesor CPU = new Procesor();
+                Form1 Okienko = new Form1();
+                Application.Run(Okienko);
+                Procesor CPU = new Procesor(Okienko);
                 Procesy CPU_man = new Procesy();
-                /*Proces example = new Proces("x", 10, 10);
-                SRT_zawiadowca planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
-                planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);*/
+                
 
                 Console.ReadKey();
             }

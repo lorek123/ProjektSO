@@ -31,7 +31,7 @@
             this.czytnik_1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.czytnik_2 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.logger = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,13 +68,13 @@
             this.czytnik_2.Size = new System.Drawing.Size(192, 195);
             this.czytnik_2.TabIndex = 2;
             // 
-            // textBox4
+            // logger
             // 
-            this.textBox4.Location = new System.Drawing.Point(640, 28);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(307, 409);
-            this.textBox4.TabIndex = 3;
+            this.logger.Location = new System.Drawing.Point(640, 28);
+            this.logger.Multiline = true;
+            this.logger.Name = "logger";
+            this.logger.Size = new System.Drawing.Size(307, 409);
+            this.logger.TabIndex = 3;
             // 
             // textBox5
             // 
@@ -162,7 +162,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.logger);
             this.Controls.Add(this.czytnik_2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.czytnik_1);
@@ -178,7 +178,7 @@
         private System.Windows.Forms.TextBox czytnik_1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox czytnik_2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox logger;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

@@ -44,5 +44,10 @@ namespace ProjektSOFULL
             return czytnik2_string;
         }
 
+        public void set_logger(string text)
+        {
+            logger.Text += text + "\n";
+        }
+
     }
 }
