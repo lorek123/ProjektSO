@@ -50,32 +50,42 @@ namespace ProjektSOFULL.modul_1
         public void set_r0(int value)
         {
             r0 = value;
-            Okienko.set_logger("Nowa wartosc r0: " + value);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Nowa wartosc r0: " + value);
+            Console.ResetColor();
             
         }
 
         public void set_r1(int value)
         {
             r1 = value;
-            Okienko.set_logger("Nowa wartosc r1: " + value);
+           Console.ForegroundColor = ConsoleColor.Blue;
+           Console.WriteLine("Nowa wartosc r1: " + value);
+           Console.ResetColor();
         }
 
         public void set_r2(int value)
         {
             r2 = value;
-            Okienko.set_logger("Nowa wartosc r2: " + value);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Nowa wartosc r2: " + value);
+            Console.ResetColor();
         }
 
         public void set_r3(int value)
         {
             r3 = value;
-            Okienko.set_logger("Nowa wartosc r3: " + value);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Nowa wartosc r3: " + value);
+            Console.ResetColor();
         }
 
         public void set_lr(int value)
         {
             lr = value;
-            Okienko.set_logger("Nowa wartosc lr: " + value);
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Nowa wartosc lr: " + value);
+            Console.ResetColor();
         }
 
 

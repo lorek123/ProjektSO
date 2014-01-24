@@ -19,6 +19,7 @@ namespace ProjektSOFULL.modul_1
         /*glowna czesc algorytmu*/
         public SRT_zawiadowca(ref Proces run, ref List<Proces> grupy_procesow)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             //tescik();
             oblicz_czas(run);
             foreach (Proces x in grupy_procesow)
@@ -49,7 +50,7 @@ namespace ProjektSOFULL.modul_1
             }
             else
                 Console.WriteLine("Kontynuujemy proces o nazwie " + run.proces_name);
-
+            Console.ResetColor();
         }
 
         /*obliczanie czasu procesow*/

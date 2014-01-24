@@ -8,7 +8,7 @@ namespace ProjektSOFULL.modul_1
 {
     class Semafor
     {
-                private int value;
+        private int value;
         public List<Proces> semafor_list_waiting = new List<Proces>();
 
         public Semafor()
@@ -18,8 +18,9 @@ namespace ProjektSOFULL.modul_1
         }
 
         /*Odciecie 1 od wartosci semafora*/
-        public void p_program(Proces x)
+        public void p_program(ref Proces x)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Wykonuje program P semafora");
 
             /*kontynuuj*/
@@ -37,11 +38,13 @@ namespace ProjektSOFULL.modul_1
                 semafor_list_waiting.Add(x);
             }
             value -= 1;
+            Console.ResetColor();
         }
 
         /*Dodanie 1 do wartosci semafora*/
         public void v_progam()
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Wykonuje program V semafora");
             value += 1;
             /*kontynuuj*/
@@ -54,6 +57,7 @@ namespace ProjektSOFULL.modul_1
             {
                 Console.WriteLine("Operacja V: Lista oczekujacych procesow pod semaforem jest pusta");
             }
+            Console.ResetColor();
         }
 
         public void semafor_waiting()
@@ -70,9 +74,9 @@ namespace ProjektSOFULL.modul_1
             y = new Proces("y", 10, 0);
             z = new Proces("z", 10, 0);
 
-            p_program(x);
-            p_program(y);
-            p_program(z);
+            p_program(ref x);
+            p_program(ref y);
+            p_program(ref z);
             v_progam();
         }
 

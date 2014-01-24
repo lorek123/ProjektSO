@@ -13,12 +13,13 @@ namespace ProjektSOFULL.modul_1
         public bool running;
         public bool stopped;
         public bool blocked;
+        public bool stop_waiting;
+        public bool czy_sprawdzony;
+        public bool semafor_info;
         public int proces_estimated_time;
         public int proces_last_time;
-        public bool semafor_info;
         public int group_indeks;
         public int instruction_done;
-        public bool czy_sprawdzony;
         public int[] cpu_stan = new int[5];
 
         public Proces(string name, int time, int group)
@@ -46,8 +47,10 @@ namespace ProjektSOFULL.modul_1
 
         public void wyswietl()
         {
-            Console.WriteLine("Nazwa " + proces_name + "\nPET: " + proces_estimated_time);
 
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Nazwa " + proces_name + "\nPET: " + proces_estimated_time);
+            Console.ResetColor();
         }
     }
 }
