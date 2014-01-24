@@ -11,7 +11,7 @@ namespace ProjektSOFULL.modul_1
 
     public class SRT_zawiadowca
     {
-        private List<Proces> test = new List<Proces>();
+        private List<Proces> test = new List<Proces>(); //testowe
         public int tau;
         public int proces_indeks;
         private double a = 0.5;
@@ -20,7 +20,6 @@ namespace ProjektSOFULL.modul_1
         public SRT_zawiadowca(ref Proces run, ref List<Proces> grupy_procesow)
         {
             Console.ForegroundColor = ConsoleColor.Blue;
-            //tescik();
             oblicz_czas(run);
             foreach (Proces x in grupy_procesow)
             {
