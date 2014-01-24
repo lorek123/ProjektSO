@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ProjektSOFULL.modul_1;
 namespace ProjektSOFULL.modul_3
 {
         public class Komunikat

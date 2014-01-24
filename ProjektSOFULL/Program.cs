@@ -13,8 +13,6 @@ namespace ProjektSOFULL
 {
     static class Program
     {
-        static modul_1.Procesor CPU = new modul_1.Procesor();
-        static modul_3.Procesy CPU_man = new modul_3.Procesy();
         [STAThread]
         static void Main()
         {
@@ -33,6 +31,7 @@ namespace ProjektSOFULL
                 /*Proces example = new Proces("x", 10, 10);
                 SRT_zawiadowca planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
                 planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);*/
+
                 Console.ReadKey();
             }
             catch (Exception x)

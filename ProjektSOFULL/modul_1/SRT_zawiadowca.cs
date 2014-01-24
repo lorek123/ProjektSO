@@ -30,7 +30,7 @@ namespace ProjektSOFULL.modul_1
             }
             Console.WriteLine("Obliczone nowe czasy przewidywane do konca procesow");
 
-            proces_indeks = min_czas(run);
+            proces_indeks = min_czas(run, grupy_procesow);
             if (proces_indeks >= 0)
             {
                 if (grupy_procesow[proces_indeks] != run)
@@ -64,7 +64,7 @@ namespace ProjektSOFULL.modul_1
         }
 
         /*wyszukiwanie minimalnego czasu procesu*/
-        int min_czas(Proces a)
+        int min_czas(Proces a, List<Proces> grupy_procesow)
         {
             Console.WriteLine("Wyszukiwanie min czasu procesu");
             int x = -1;
