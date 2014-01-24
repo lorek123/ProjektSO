@@ -10,7 +10,7 @@ namespace ProjektSOFULL.modul_5
     class IPLRTN
     {
         IPLRTN(){
-            
+            Form1.appendtotextbox1("Witamy w systemie PROJEKT SO FULL");
         }
     }
 }
