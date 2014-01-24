@@ -31,5 +31,28 @@ namespace ProjektSOFULL
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox4.Text = "Witamy w Systemie Projekt SO FULL \n";
+            textBox4.Text += "Próba Podjęcia zlecenia\n";
+            if (textBox1.Text.Length==0)
+            {
+                textBox4.Text += "Karta zlecenia jest pusta, wstrzymanie działania\n";
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox4.Text = "Witamy w Systemie Projekt SO FULL \n";
+            textBox4.Text += "Próba Podjęcia zlecenia\n";
+            if (textBox2.Text.Length == 0)
+            {
+                textBox4.Text += "Karta zlecenia jest pusta, wstrzymanie działania\n";
+                return;
+            }
+
+        }
     }
 }
