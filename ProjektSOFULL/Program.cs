@@ -38,6 +38,9 @@ namespace ProjektSOFULL
                 planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);*/
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 068e7fd3a438505560e56768747bda8a64b3d942
+=======
 >>>>>>> 068e7fd3a438505560e56768747bda8a64b3d942
 =======
 >>>>>>> 068e7fd3a438505560e56768747bda8a64b3d942
