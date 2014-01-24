@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace ProjektSOFULL.modul_4
     class urzadzenie
     {
         private string device_name;
+
         urzadzenie(string nazwa)
         {
             device_name = nazwa;
@@ -16,7 +18,7 @@ namespace ProjektSOFULL.modul_4
 
         public void przyjmij_komunikat(string komunikat)
         {
-            //append to drukarka
+         //append to drukarka
 
         }
         public void set_name(string nazwa)
@@ -28,11 +30,5 @@ namespace ProjektSOFULL.modul_4
             return device_name;
         }
 
-
-
-
-
-
-        
     }
 }
