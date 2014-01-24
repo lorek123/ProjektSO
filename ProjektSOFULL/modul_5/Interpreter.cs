@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjektSOFULL;
 
 namespace ProjektSOFULL.modul_5
 {
         static class Interpreter
         {
-            public void find(string rozkaz, ref modul_1.Procesor CPU, int do_skoku =0)
+            public void find(string rozkaz)
             {
                 string temp;
                 temp = rozkaz.Split(" ".ToCharArray()).First();
@@ -17,20 +16,20 @@ namespace ProjektSOFULL.modul_5
                 {
 
                     case "dodaj":
-                        dodaj(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()),ref CPU);
+                        dodaj(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
                         
                         break;
                     case "odejmij":
-                        odejmij(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()),ref CPU);
+                        odejmij(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
                         break;
                     case "pomnoz":
-                        pomnoz(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()),ref CPU);
+                        pomnoz(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
                         break;
                     case "podziel":
-                        podziel(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()), ref CPU);
+                        podziel(Convert.ToInt32(rozkaz.Split(" ".ToCharArray()).Last()));
                         break;
                     case "zeruj":
-                        zeruj(ref CPU);
+                        zeruj();
                         break;
                     case "zakoncz":
                         zakoncz();
@@ -39,50 +38,49 @@ namespace ProjektSOFULL.modul_5
                         zakoncz_blad();
                         break;
                     case "skok_zero":
-                        skok_zero(rozkaz.Split(" ".ToCharArray()).Last(),do_skoku,ref CPU);
+                        skok_zero(rozkaz.Split(" ".ToCharArray()).Last());
 
                         break;
 
                     case "skok_nzero":
-                        skok_zero(rozkaz.Split(" ".ToCharArray()).Last(),do_skoku, ref CPU);
+                        skok_zero(rozkaz.Split(" ".ToCharArray()).Last());
                         break;
                 }
 
             }
-            void dodaj(int a, ref modul_1.Procesor CPU)
+            void dodaj(int a)
             {
-                CPU.set_r0(CPU.get_r0() + a);
+                Procesor.set_r0(Procesor.get_r0() + a);
             }
-            void odejmij(int a, ref modul_1.Procesor CPU)
+            void odejmij(int a)
             {
-                CPU.set_r0(CPU.get_r0() - a);
+                Procesor.set_r0(Procesor.get_r0() - a);
             }
-            void pomnoz(int a, ref modul_1.Procesor CPU)
+            void pomnoz(int a)
             {
-                CPU.set_r0(CPU.get_r0() * a);
+                Procesor.set_r0(Procesor.get_r0() * a);
             }
-            void podziel(int a, ref modul_1.Procesor CPU)
+            void podziel(int a)
             {
                 try
                 {
-                    CPU.set_r0(CPU.get_r0() / a);
+                    Procesor.set_r0(Procesor.get_r0() / a);
                 }
                 catch (DivideByZeroException ex)
                 {
-
                     zakoncz_blad();
                 }
 
             }
-            void zeruj(ref modul_1.Procesor CPU)
+            void zeruj()
             {
-                CPU.set_r0(0);
+                Procesor.set_r0(0);
             }
             void zakoncz_blad() { }
             void zakoncz() { }
-            int skok_zero(string a, int i, ref modul_1.Procesor CPU)
+            int skok_zero(string a, int i)
             {
-                if (CPU.get_r0() == 0)
+                if (Procesor.get_r0() == 0)
                 {
                     i = Proces_nadzorczy.memory.FindIndex(a);
                     return i;
@@ -93,19 +91,17 @@ namespace ProjektSOFULL.modul_5
                 }
 
             }
-            int skok_nzero(string a, int i, ref modul_1.Procesor CPU)
+            int skok_nzero(string a, int i)
             {
-                if (CPU.get_r0() != 0)
+                if (Procesor.get_r0() != 0)
                 {
                     i = Proces_nadzorczy.memory.FindIndex(a);
                     return i;
-
                 }
                 else
                 {
                     return i;
                 }
-
             }
             void wypisz(string a) { }
         }
