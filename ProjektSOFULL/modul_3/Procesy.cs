@@ -126,7 +126,6 @@ namespace ProjektSOFULL.modul_3
                 tekst.Komunikat_bledu();
             }
 
-
         }
     }
     

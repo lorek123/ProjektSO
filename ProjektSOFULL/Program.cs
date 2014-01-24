@@ -13,6 +13,8 @@ namespace ProjektSOFULL
 {
     static class Program
     {
+        static modul_1.Procesor CPU = new modul_1.Procesor();
+        static modul_3.Procesy CPU_man = new modul_3.Procesy();
         [STAThread]
         static void Main()
         {
@@ -26,8 +28,7 @@ namespace ProjektSOFULL
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());
-                Procesor CPU = new Procesor();
-                Procesy CPU_man = new Procesy();
+                
                 Console.ReadKey();
             }
             catch (Exception x)
