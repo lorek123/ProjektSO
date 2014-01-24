@@ -17,7 +17,7 @@ namespace ProjektSOFULL.modul_1
         private double a = 0.5;
 
         /*glowna czesc algorytmu*/
-        public SRT_zawiadowca(Proces run)
+        public SRT_zawiadowca(ref Proces run, ref List<Proces> grupy_procesow)
         {
             //tescik();
             oblicz_czas(run);

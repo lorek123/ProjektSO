@@ -28,6 +28,10 @@ namespace ProjektSOFULL
                 Application.Run(new Form1());
                 Procesor CPU = new Procesor();
                 Procesy CPU_man = new Procesy();
+                /*Proces example = new Proces("x", 10, 10);
+                SRT_zawiadowca planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
+                planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);*/
+
                 Console.ReadKey();
             }
             catch (Exception x)
