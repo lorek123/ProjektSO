@@ -8,7 +8,6 @@ namespace Proces_modul_nizszy
 {
     public class SRT_zawiadowca
     {
-
         public List<Proces> test = new List<Proces>(); //lista testowa
         public int tau;
         public int proces_indeks;
