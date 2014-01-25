@@ -13,6 +13,7 @@ namespace ProjektSOFULL
     public partial class Form1 : Form
     {
         public delegate void SetTextDelegate(String text);
+        public delegate void GetTextDelegate(String text);
         String[] czytnik1_string = new String[100];
         String[] czytnik2_string = new String[100];
         String pomocniczy;
