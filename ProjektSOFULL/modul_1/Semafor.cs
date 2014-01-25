@@ -8,7 +8,8 @@ namespace ProjektSOFULL.modul_1
 {
     class Semafor
     {
-                private int value;
+        Form1 currentForm = (Form1)Form1.ActiveForm;
+        private int value;
         public List<Proces> semafor_list_waiting = new List<Proces>();
 
         public Semafor()
@@ -18,22 +19,21 @@ namespace ProjektSOFULL.modul_1
         }
 
         /*Odciecie 1 od wartosci semafora*/
-        public void p_program(Proces x)
+        public void p_program(ref Proces x)
         {
-            Console.WriteLine("Wykonuje program P semafora");
-
+            currentForm.SetText("SEMAFOR: Wykonuje program P semafora");
             /*kontynuuj*/
             if (value > 0)
             {
                 /*Dostep do danych dla procesu z listy oczekujacych*/
-                Console.WriteLine("Operacja P: Przyznaje dostep do semafora");
+                currentForm.SetText("SEMAFOR: Operacja P - przyznaje dostep do semafora");
                 x.semafor_info = true;
 
             }
             else
             {
                 /*nie ma mozliwosci dostepu do semafora - dodanie do listy oczekujacych*/
-                Console.WriteLine("Operacja P: Brak dostepu - dodaje proces na liste oczekujacych");
+                currentForm.SetText("SEMAFOR: Operacja p -brak dostepu - dodaje proces na liste oczekujacych");
                 semafor_list_waiting.Add(x);
             }
             value -= 1;
@@ -42,17 +42,17 @@ namespace ProjektSOFULL.modul_1
         /*Dodanie 1 do wartosci semafora*/
         public void v_progam()
         {
-            Console.WriteLine("Wykonuje program V semafora");
+            currentForm.SetText("Wykonuje program V semafora");
             value += 1;
             /*kontynuuj*/
             if (semafor_list_waiting.Count() > 0)
             {
-                Console.WriteLine("Operacja V: Przyznaje dostep procesowi z listy oczekujacych");
-                semafor_waiting();       
+                currentForm.SetText("SEMAFOR: Operacja V - przyznaje dostep procesowi z listy oczekujacych");
+                semafor_waiting();
             }
             else
             {
-                Console.WriteLine("Operacja V: Lista oczekujacych procesow pod semaforem jest pusta");
+                currentForm.SetText("SEMAFOR: Operacja V - lista oczekujacych procesow pod semaforem jest pusta");
             }
         }
 
@@ -63,17 +63,17 @@ namespace ProjektSOFULL.modul_1
             //zwróć proces do listy
         }
 
-       private void tescik()
+        private void tescik()
         {
             Proces x, y, z;
-            x = new Proces("x", 10, 0);
-            y = new Proces("y", 10, 0);
-            z = new Proces("z", 10, 0);
+            //x = new Proces("x", 10, 0);
+            //y = new Proces("y", 10, 0);
+            //z = new Proces("z", 10, 0);
 
-            p_program(x);
-            p_program(y);
-            p_program(z);
-            v_progam();
+            //p_program(ref x);
+            //p_program(ref y);
+            //p_program(ref z);
+            //v_progam();
         }
 
     }

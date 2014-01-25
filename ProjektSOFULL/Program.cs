@@ -13,35 +13,33 @@ namespace ProjektSOFULL
 {
     static class Program
     {
-        static modul_1.Procesor CPU = new modul_1.Procesor();
-        static modul_3.Procesy CPU_man = new modul_3.Procesy();
         [STAThread]
         static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+        }
 
-            try
-            {
-                /*Proces testowy = new Proces("Testowy", 10, 0);
-                *SRT_zawiadowca planista = new SRT_zawiadowca(testowy);
-                *Semafor x = new Semafor();
-                */
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Form1());
-                Procesor CPU = new Procesor();
-                Procesy CPU_man = new Procesy();
-                /*Proces example = new Proces("x", 10, 10);
-                SRT_zawiadowca planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
-                planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);*/
-                Console.ReadKey();
-            }
-            catch (Exception x)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(x.StackTrace);
-                Console.ResetColor();
-                Console.ReadKey();
-            }
+
+        /*
+         * Proces testowy = new Proces("Testowy", 10, 0);
+        *SRT_zawiadowca planista = new SRT_zawiadowca(testowy);
+        *Semafor x = new Semafor();
+        */
+
+        /*
+         * Proces example = new Proces("x", 10, 10);
+         * SRT_zawiadowca planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
+         * planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
+         */
+
+        /*Wykonywanie operacji systemu*/
+        public static void system_up()
+        {
+            Procesor CPU = new Procesor();
+            Procesy CPU_man = new Procesy();
+
 
         }
     }

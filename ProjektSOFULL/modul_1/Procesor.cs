@@ -13,6 +13,7 @@ namespace ProjektSOFULL.modul_1
         private int r2;
         private int r3;
         private int lr;
+        Form1 currentForm = (Form1)Form1.ActiveForm;
 
         /*getery*/
         public int get_r0()
@@ -45,26 +46,31 @@ namespace ProjektSOFULL.modul_1
         public void set_r0(int value)
         {
             r0 = value;
+            currentForm.SetText("PROCESOR: Nowa wartosc r0: " + value.ToString());
         }
 
         public void set_r1(int value)
         {
             r1 = value;
+            currentForm.SetText("PROCESOR: Nowa wartosc r1: " + value.ToString());
         }
 
         public void set_r2(int value)
         {
             r2 = value;
+            currentForm.SetText("PROCESOR: Nowa wartosc r2: " + value.ToString());
         }
 
         public void set_r3(int value)
         {
             r3 = value;
+            currentForm.SetText("PROCESOR: Nowa wartosc r3: " + value.ToString());
         }
 
         public void set_lr(int value)
         {
             lr = value;
+            currentForm.SetText("PROCESOR: Nowa wartosc lr: " + value.ToString());
         }
 
 
