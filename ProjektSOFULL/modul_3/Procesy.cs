@@ -13,6 +13,7 @@ namespace ProjektSOFULL.modul_3
         private bool istnieje;
         Komunikat tekst;
 
+        Form1 currentForm = (Form1)Form1.ActiveForm;
         //do listy wszystkich grup procesow dodaje nowa grupe procesow
         public Procesy()
         {

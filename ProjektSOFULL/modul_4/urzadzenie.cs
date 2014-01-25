@@ -10,6 +10,7 @@ namespace ProjektSOFULL.modul_4
     {
         urzadzenie(string nazwa) { }
 
+        Form1 currentForm = (Form1)Form1.ActiveForm;
         public void przyjmij_komunikat(string komunikat)
         {
             //append to drukarka

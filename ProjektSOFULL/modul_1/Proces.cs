@@ -13,15 +13,20 @@ namespace ProjektSOFULL.modul_1
         public bool running;
         public bool stopped;
         public bool blocked;
+        public bool stop_waiting;
+        public bool czy_sprawdzony;
+        public bool semafor_info;
+        public int message_semaphore_common;
+        public int message_semaphore_receiver;
+        public List<string> first_message;
         public int proces_estimated_time;
         public int proces_last_time;
-        public bool semafor_info;
         public int group_indeks;
         public int instruction_done;
-        public bool czy_sprawdzony;
         public int[] cpu_stan = new int[5];
 
-        public Proces(string name, int time, int group)
+        Form1 currentForm = (Form1)Form1.ActiveForm;
+        public Proces(string name, int time, int group, ref List<string> fm)
         {
             proces_name = name;
             running = false;
@@ -29,6 +34,9 @@ namespace ProjektSOFULL.modul_1
             stopped = false;
             proces_estimated_time = time;
             proces_last_time = 0;
+            message_semaphore_common = 0;
+            message_semaphore_receiver = 0;
+            first_message = fm;
             semafor_info = false;
             group_indeks = group;
             instruction_done = 0;
@@ -46,7 +54,7 @@ namespace ProjektSOFULL.modul_1
 
         public void wyswietl()
         {
-            Console.WriteLine("Nazwa " + proces_name + "\nPET: " + proces_estimated_time);
+            currentForm.SetText("Nazwa " + proces_name + "\nPET: " + proces_estimated_time);
 
         }
     }

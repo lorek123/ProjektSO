@@ -13,6 +13,7 @@ namespace ProjektSOFULL.modul_3
             //public int size;
             public string message;
             //public int message_size;
+            Form1 currentForm = (Form1)Form1.ActiveForm;
             public Komunikat(Proces name, Proces n, string wiadomosc)
             {
                 sender_pointer = name;
@@ -25,7 +26,8 @@ namespace ProjektSOFULL.modul_3
 
             public void Zatrzymanie_zlecenia(string wiadomosc)
             {
-                Console.WriteLine(wiadomosc);
+                currentForm.SetText(wiadomosc);
+                
 
             }
 
@@ -43,7 +45,7 @@ namespace ProjektSOFULL.modul_3
 
             public void Komunikat_bledu()
             {
-                Console.WriteLine("Wystapil blad");
+                currentForm.SetText("Wystapil blad");
             }
         }
     }
