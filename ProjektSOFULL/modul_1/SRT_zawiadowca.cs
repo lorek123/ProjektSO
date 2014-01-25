@@ -29,7 +29,7 @@ namespace ProjektSOFULL.modul_1
                     oblicz_czas(x);
                 }
             }
-            currentForm.SetText("Obliczone nowe czasy przewidywane do konca procesow");
+            currentForm.SetText("SRT: Obliczone nowe czasy przewidywane do konca procesow");
 
             proces_indeks = min_czas(run, grupy_procesow);
             if (proces_indeks >= 0)
@@ -40,16 +40,16 @@ namespace ProjektSOFULL.modul_1
                     run.running = false;
                     run.czy_sprawdzony = false;
                     grupy_procesow[proces_indeks].running = true;
-                    currentForm.SetText("Uruchomiono proces o nazwie " + grupy_procesow[proces_indeks].proces_name);
+                    currentForm.SetText("SRT: Uruchomiono proces o nazwie " + grupy_procesow[proces_indeks].proces_name);
                 }
                 else
                 {
                     /*nie zmieniaj i kontynuuj stary*/
-                    currentForm.SetText("Kontynuujemy proces o nazwie " + grupy_procesow[proces_indeks].proces_name);
+                    currentForm.SetText("SRT: Kontynuujemy proces o nazwie " + grupy_procesow[proces_indeks].proces_name);
                 }
             }
             else
-                currentForm.SetText("Kontynuujemy proces o nazwie " + run.proces_name);
+                currentForm.SetText("SRT: Kontynuujemy proces o nazwie " + run.proces_name);
         }
 
         /*obliczanie czasu procesow*/
@@ -66,7 +66,7 @@ namespace ProjektSOFULL.modul_1
         /*wyszukiwanie minimalnego czasu procesu*/
         int min_czas(Proces a, List<Proces> grupy_procesow)
         {
-            currentForm.SetText("Wyszukiwanie min czasu procesu");
+            currentForm.SetText("SRT: Wyszukiwanie min czasu procesu");
             int x = -1;
             int min = a.proces_estimated_time;
             if (grupy_procesow.Count() > 0)
@@ -82,7 +82,7 @@ namespace ProjektSOFULL.modul_1
             }
             else
             {
-                currentForm.SetText("Nie ma zadnego procesu na liscie");
+                currentForm.SetText("SRT: Nie ma zadnego procesu na liscie");
             }
 
             return x;

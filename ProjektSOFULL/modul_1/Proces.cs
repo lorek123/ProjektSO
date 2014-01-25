@@ -54,7 +54,7 @@ namespace ProjektSOFULL.modul_1
 
         public void wyswietl()
         {
-            currentForm.SetText("Nazwa " + proces_name + "\nPET: " + proces_estimated_time);
+            currentForm.SetText("DANE PROCESU: Nazwa " + proces_name + "\nPET: " + proces_estimated_time);
 
         }
     }

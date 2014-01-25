@@ -13,9 +13,15 @@ namespace ProjektSOFULL.modul_4
         public void print(string do_druku, int nr_dr)
         {
             if (nr_dr == 1)
+            {
                 currentForm.set_drukarka1(do_druku);
+                currentForm.SetText("DRUKARKA: Druk danych na drukarce 1");
+            }
             else if (nr_dr == 2)
+            {
                 currentForm.set_drukarka2(do_druku);
+                currentForm.SetText("DRUKARKA: Druk danych na drukarce 2");
+            }
         }
     }
 }

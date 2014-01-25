@@ -15,9 +15,15 @@ namespace ProjektSOFULL.modul_4
         public string[] load_to_buffer(string nazwa)
         {
             if (!nazwa)
+            {
                 czytnik = currentForm.get_czytnik1();
+                currentForm.SetText("CZYTNIK: Pobrano dane z czytnika 1");
+            }
             else
+            {
                 czytnik = currentForm.get_czytnik2();
+                currentForm.SetText("CZYTNIK: Pobrano dane z czytnika 2");
+            }
 
             return czytnik;
         }
