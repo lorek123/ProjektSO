@@ -52,7 +52,8 @@ namespace ProjektSOFULL.modul_3
             if (!istnieje)
             {
                 grupy_procesow.Add(new modul_1.Proces(nazwa, czas, numer));
-                tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);
+                currentForm.SetText(Utworzono proces" + nazwa);
+               // tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);
 
             }
         }
@@ -73,7 +74,8 @@ namespace ProjektSOFULL.modul_3
                     if (!proces.stopped)
                     {
                         proces.stopped = true;
-                        tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
+                        currentForm.SetText("Zatrzymano proces" + nazwa);
+                       // tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
                     }
                     break;
 
@@ -88,7 +90,8 @@ namespace ProjektSOFULL.modul_3
             if (istnieje)
             {
                 grupy_procesow.RemoveAt(licznik);
-                tekst.Zatrzymanie_zlecenia("Usunieto proces" + nazwa);
+                 currentForm.SetText("Usunieto proces" + nazwa);
+                //tekst.Zatrzymanie_zlecenia("Usunieto proces" + nazwa);
             }
 
         }
@@ -105,7 +108,8 @@ namespace ProjektSOFULL.modul_3
                 {
                     istnieje = true;
                     licznik = grupy_procesow.IndexOf(proces);
-                    tekst.Zatrzymanie_zlecenia("Znaleziono proces" + proces.proces_name + "w grupie o indeksie" + proces.group_indeks);
+                    currentForm.SetText("Znaleziono proces" + proces.proces_name + "w grupie o indeksie" + proces.group_indeks);
+                    //tekst.Zatrzymanie_zlecenia("Znaleziono proces" + proces.proces_name + "w grupie o indeksie" + proces.group_indeks);
                     break;
 
                 }
@@ -172,7 +176,8 @@ namespace ProjektSOFULL.modul_3
 
                         }
                         proces.stopped = true;
-                        tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
+                        currentForm.SetText("Zatrzymano proces" + nazwa);
+                        //tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
                     }
                     break;
 
@@ -199,7 +204,8 @@ namespace ProjektSOFULL.modul_3
                     if (proces.stopped)
                     {
                         proces.stopped = false;
-                        tekst.Zatrzymanie_zlecenia("Uruchomiono proces" + nazwa);
+                        currentForm.SetText("Uruchomiono proces" + nazwa);
+                       // tekst.Zatrzymanie_zlecenia("Uruchomiono proces" + nazwa);
                     }
                     break;
 
