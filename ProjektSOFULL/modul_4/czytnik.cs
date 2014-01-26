@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektSOFULL.modul_4
 {
-
-
-    class czytnik : urzadzenie
+    public class czytnik : urzadzenie
     {
         Form1 currentForm = (Form1)Form1.ActiveForm;
         String[] wczytaj = new String[1024];

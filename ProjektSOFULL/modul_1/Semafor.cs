@@ -15,7 +15,6 @@ namespace ProjektSOFULL.modul_1
         public Semafor()
         {
             value = 5;
-            //tescik();
         }
 
         public int get_value()
@@ -67,21 +66,5 @@ namespace ProjektSOFULL.modul_1
             semafor_list_waiting.RemoveAt(0);
             //zwróć proces do listy
         }
-
-        private void tescik()
-        {
-            Proces x, y, z;
-            //x = new Proces("x", 10, 0);
-            //y = new Proces("y", 10, 0);
-            //z = new Proces("z", 10, 0);
-
-            //p_program(ref x);
-            //p_program(ref y);
-            //p_program(ref z);
-            //v_progam();
-        }
-
     }
-
-
 }

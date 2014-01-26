@@ -9,7 +9,6 @@ namespace ProjektSOFULL.modul_5
 {
     class IPLRTN
     {
-
         Form1 currentForm = (Form1)Form1.ActiveForm;
         IPLRTN(){
             currentForm.SetText("Witamy w systemie PROJEKT SO FULL");

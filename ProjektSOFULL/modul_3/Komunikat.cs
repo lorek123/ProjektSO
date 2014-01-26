@@ -98,12 +98,6 @@ komunikaty, to odszukuje siê ostatni komunikat i w polu next tego komunikatu dod
 wys³any. Na koñcu wykonywane s¹ operacje V na semaforach odbiorcy COMMON i RECEIVER. */
         // Tak to powinno wygladac...
 
-
-
-
-
-
-
         public void Komunikat_bledu()
         {
             currentForm.SetText("Wystapil blad");

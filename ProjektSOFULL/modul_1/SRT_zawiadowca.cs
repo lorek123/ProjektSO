@@ -11,7 +11,6 @@ namespace ProjektSOFULL.modul_1
 
     public class SRT_zawiadowca
     {
-        private List<Proces> test = new List<Proces>(); //testowe
         public int tau;
         public int proces_indeks;
         private double a = 0.5;
@@ -76,7 +75,7 @@ namespace ProjektSOFULL.modul_1
                     if (min > p.proces_estimated_time && p.blocked == false && p.stopped == false)
                     {
                         min = p.proces_estimated_time;
-                        x = test.IndexOf(p);
+                        x = grupy_procesow.IndexOf(p);
                     }
                 }
             }
@@ -84,22 +83,7 @@ namespace ProjektSOFULL.modul_1
             {
                 currentForm.SetText("SRT: Nie ma zadnego procesu na liscie");
             }
-
             return x;
         }
-
-        private void tescik()
-        {
-            Proces x, y, z;
-            //x = new Proces("x", 10, 0);
-            //y = new Proces("y", 10, 0);
-            //z = new Proces("z", 10, 0);
-
-            //test.Add(x);
-            //test.Add(y);
-            //test.Add(z);
-        }
-
     }
-
 }
