@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjektSOFULL.modul_4
 {
-    class urzadzenie
+    public class urzadzenie
     {
         private string device_name;
         urzadzenie(string nazwa)
@@ -17,12 +17,13 @@ namespace ProjektSOFULL.modul_4
         public void przyjmij_komunikat(string komunikat)
         {
             //append to drukarka
-
         }
+
         public void set_name(string nazwa)
         {
             device_name = nazwa;
         }
+
         public string get_name()
         {
             return device_name;

@@ -36,9 +36,11 @@ namespace ProjektSOFULL
         /*Wykonywanie operacji systemu*/
         public static void system_up()
         {
+            Form1 currentForm = (Form1)Form1.ActiveForm;
             Procesor CPU = new Procesor();
             Procesy CPU_man = new Procesy();
-
+            currentForm.SetText("Witamy w systemie PROJEKT SO FULL");
+            Interpreter _interpreter = new Interpreter();
 
         }
     }

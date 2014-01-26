@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjektSOFULL.modul_5
 {
-        static class Interpreter
+        public class Interpreter
         {
-            Form1 currentForm = (Form1)Form1.ActiveForm;
+           Form1 currentForm = (Form1)Form1.ActiveForm;
             public void find(string rozkaz, ref modul_1.Procesor CPU, int doskoku = 0)
             {
                 string temp;
