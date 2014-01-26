@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ProjektSOFULL.modul_3;
 namespace ProjektSOFULL.modul_1
 {
     public class Proces
     {
         /*PCB*/
         public string proces_name;
+        public Komunikat first_message;
         public bool running;
         public bool stopped;
         public bool blocked;
@@ -28,6 +29,7 @@ namespace ProjektSOFULL.modul_1
         public Proces(string name, int time, int group)
         {
             proces_name = name;
+            first_message = null;
             running = false;
             blocked = false;
             stopped = false;

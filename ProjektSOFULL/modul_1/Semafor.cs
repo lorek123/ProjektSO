@@ -18,6 +18,11 @@ namespace ProjektSOFULL.modul_1
             //tescik();
         }
 
+        public int get_value()
+        {
+            return value;
+        }
+
         /*Odciecie 1 od wartosci semafora*/
         public void p_program(Proces x)
         {
