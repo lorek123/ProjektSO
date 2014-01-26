@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,6 @@ namespace ProjektSOFULL.modul_3
         //public List<Procesy> lista_procesow = new List<Procesy>();
         public List<modul_1.Proces> grupy_procesow = new List<modul_1.Proces>();
         private bool istnieje;
-        // To u Lorka powinno byc, wtedy on sobie bedzie mogl to u siebie dostosowywac
         private string name;
         private int group_number;
         Form1 currentForm = (Form1)Form1.ActiveForm;
@@ -52,7 +51,7 @@ namespace ProjektSOFULL.modul_3
             if (!istnieje)
             {
                 grupy_procesow.Add(new modul_1.Proces(nazwa, czas, numer));
-                currentForm.SetText(Utworzono proces" + nazwa);
+                currentForm.SetText("Utworzono proces" + nazwa);
                // tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);
 
             }
@@ -71,9 +70,9 @@ namespace ProjektSOFULL.modul_3
                 {
                     istnieje = true;
                     licznik = grupy_procesow.IndexOf(proces);
-                    if (!proces.stopped)
+                    if (proces.running)
                     {
-                        proces.stopped = true;
+                        proces.running = false;
                         currentForm.SetText("Zatrzymano proces" + nazwa);
                        // tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
                     }
@@ -104,7 +103,7 @@ namespace ProjektSOFULL.modul_3
             string name_search;
             foreach (modul_1.Proces proces in grupy_procesow)
             {
-                if (!proces.stopped)
+                if (proces.running)
                 {
                     istnieje = true;
                     licznik = grupy_procesow.IndexOf(proces);
@@ -129,13 +128,14 @@ namespace ProjektSOFULL.modul_3
         }
         // znalezienie po nazwie i numerze grupy i zwrocenie konkretnego procesu
         //nie wiem czemu tak
-        public static modul_1.Proces znalezienie_nazwy(string nazwa)
+        
+        public modul_1.Proces znalezienie_nazwy(string nazwa, int grupa)
         {
             istnieje = false;
             int licznik = 0;
-            foreach (modul_1.Proces proces in grupy_procesow)
+            foreach (modul_1.Proces proces in  grupy_procesow)
             {
-                if (!proces.stopped)
+                if (proces.group_indeks == grupa && proces.proces_name == nazwa)
                 {
                     istnieje = true;
                     licznik = grupy_procesow.IndexOf(proces);
@@ -150,11 +150,45 @@ namespace ProjektSOFULL.modul_3
             }
             else
             {
+                
                 tekst.Komunikat_bledu();
+                return null;
+                
             }
 
 
         }
+
+        public modul_1.Proces znalezienie_nazwy()
+        {
+            istnieje = false;
+            int licznik = 0;
+            foreach (modul_1.Proces proces in grupy_procesow)
+            {
+                if (proces.running)
+                {
+                    istnieje = true;
+                    licznik = grupy_procesow.IndexOf(proces);
+                    break;
+
+                }
+            }
+
+            if (istnieje)
+            {
+                return grupy_procesow[licznik];
+            }
+            else
+            {
+
+                tekst.Komunikat_bledu();
+                return null;
+
+            }
+
+
+        }
+         
 
         //zatrzymanie procesu
         public void zatrzymanie_procesu(string nazwa, int numer)
@@ -166,16 +200,10 @@ namespace ProjektSOFULL.modul_3
                 if (proces.group_indeks == numer && proces.proces_name == nazwa)
                 {
                     licznik = grupy_procesow.IndexOf(proces);
-                    if (proces.stopped)
+                    if (proces.running)
                     {
-                        if (!proces.semafor_info)
-                        {
-                            proces.waiting = true;
-                            //co tu ma byc????//EDIT chyba tak 
-                           semafor.p_program(grupy_procesow[licznik]);
-
-                        }
-                        proces.stopped = true;
+                     
+                        proces.running = false;
                         currentForm.SetText("Zatrzymano proces" + nazwa);
                         //tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
                     }
@@ -201,9 +229,9 @@ namespace ProjektSOFULL.modul_3
                 if (proces.group_indeks == numer && proces.proces_name == nazwa)
                 {
                     licznik = grupy_procesow.IndexOf(proces);
-                    if (proces.stopped)
+                    if (proces.running)
                     {
-                        proces.stopped = false;
+                        proces.running = true;
                         currentForm.SetText("Uruchomiono proces" + nazwa);
                        // tekst.Zatrzymanie_zlecenia("Uruchomiono proces" + nazwa);
                     }
@@ -220,9 +248,9 @@ namespace ProjektSOFULL.modul_3
 
         }
         // Zatrzymanie zlecenia i powiadomienie programu nadzorczego
-        public void Zakonczenie_realizacji_zlecenia()
+        public void Zakonczenie_realizacji_zlecenia(int grupa)
         {
-            tekst.Wysylaj_Komunikat("*IBSUP", "KONIEC ZLECENIA");
+            tekst.Wysylaj_Komunikat("*IBSUP", grupa, "KONIEC ZLECENIA");
         }
     }
     
