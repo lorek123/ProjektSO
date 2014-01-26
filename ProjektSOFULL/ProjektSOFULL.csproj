@@ -52,7 +52,6 @@
     </Compile>
     <Compile Include="modul_1\Proces.cs" />
     <Compile Include="modul_1\Procesor.cs" />
-    <Compile Include="modul_1\Program.cs" />
     <Compile Include="modul_1\Semafor.cs" />
     <Compile Include="modul_1\SRT_zawiadowca.cs" />
     <Compile Include="modul_3\Komunikat.cs" />
