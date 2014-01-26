@@ -19,7 +19,7 @@ namespace ProjektSOFULL.modul_1
         }
 
         /*Odciecie 1 od wartosci semafora*/
-        public void p_program(ref Proces x)
+        public void p_program(Proces x)
         {
             currentForm.SetText("SEMAFOR: Wykonuje program P semafora");
             /*kontynuuj*/

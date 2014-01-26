@@ -18,7 +18,7 @@ namespace ProjektSOFULL.modul_1
 
         Form1 currentForm = (Form1)Form1.ActiveForm;
         /*glowna czesc algorytmu*/
-        public SRT_zawiadowca(ref Proces run, ref List<Proces> grupy_procesow)
+        public SRT_zawiadowca(Proces run, List<Proces> grupy_procesow)
         {
             
             oblicz_czas(run);
