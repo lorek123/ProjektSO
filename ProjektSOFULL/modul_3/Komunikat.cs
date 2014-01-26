@@ -87,17 +87,7 @@ namespace ProjektSOFULL.modul_3
             currentForm.SetText("Tre��: " + tekst);
         }
 
-        /*  Funkcja s�u��ca do wys�ania komunikatu, jako parametr przyjmuje nazw� procesu odbiorcy, tekst
-komunikatu. Na pocz�tku za pomoc� funkcji znalezienie_nazwy nast�puje wyszukanie bloku PCB odbiorcy, oraz wykonanie
-na semaforze COMMON operacji P. Utworzony zostaje obiekt komunikatu, kt�ry w parametrze otrzymuje
-tekst komunikatu, temu obiektowi jako wska�nik do nadawcy komunikatu, przypisany jest blok kontrolny
-procesu aktualnie wykonywanego, czyli tego kt�ry wywo�a� funkcj� wysylania komunikatu. Wska�nik na nast�pny komunikat
-jest zerowany. Nast�pnie nale�y doda� obiekt tego komunikatu do jego bloku kontrolnego, gdy nie poosiada
-�adnego komunikatu, to jest on przypisany do wska�nika FIRST_MESSAGE, gdy za� posiada ju� jakie�
-komunikaty, to odszukuje si� ostatni komunikat i w polu next tego komunikatu dodawany jest aktualnie
-wys�any. Na ko�cu wykonywane s� operacje V na semaforach odbiorcy COMMON i RECEIVER. */
-        // Tak to powinno wygladac...
-
+        
         public void Komunikat_bledu()
         {
             currentForm.SetText("Wystapil blad");
