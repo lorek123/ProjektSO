@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProjektSOFULL.modul_1;
-using ProjektSOFULL.modul_2;
 using ProjektSOFULL.modul_3;
 using ProjektSOFULL.modul_4;
 using ProjektSOFULL.modul_5;

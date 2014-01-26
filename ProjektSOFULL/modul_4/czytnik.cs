@@ -11,21 +11,21 @@ namespace ProjektSOFULL.modul_4
     class czytnik : urzadzenie
     {
         Form1 currentForm = (Form1)Form1.ActiveForm;
-        String[] czytnik = new String[1024];
+        String[] wczytaj = new String[1024];
         public string[] load_to_buffer(string nazwa)
         {
-            if (!nazwa)
+            if (nazwa == "czytnik1")
             {
-                czytnik = currentForm.get_czytnik1();
+                wczytaj = currentForm.get_czytnik1();
                 currentForm.SetText("CZYTNIK: Pobrano dane z czytnika 1");
             }
             else
             {
-                czytnik = currentForm.get_czytnik2();
+                wczytaj = currentForm.get_czytnik2();
                 currentForm.SetText("CZYTNIK: Pobrano dane z czytnika 2");
             }
 
-            return czytnik;
+            return wczytaj;
         }
     }
 }

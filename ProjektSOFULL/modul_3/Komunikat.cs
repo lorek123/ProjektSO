@@ -45,7 +45,7 @@ namespace ProjektSOFULL.modul_3
             ile = ile + tekst.Length;
             receiver.first_message = receiver.first_message.next;
             currentForm.SetText("Odebrano komunikat od procesu " + nadawca);
-            currentForm.SetText("TreÅ›Ä‡: " + tekst);
+            currentForm.SetText("Treœæ: " + tekst);
             receiver.message_semaphore_common++;
             return odebrany;
         }
@@ -83,19 +83,19 @@ namespace ProjektSOFULL.modul_3
                 currentForm.SetText("MESSAGE_SEMAPHORE_RECEIVER: " + semafor.get_value());
             }
             receiver.message_semaphore_common++;
-            currentForm.SetText("WysÅ‚ano komunikat do procesu " + odbiorca);
-            currentForm.SetText("TreÅ›Ä‡: " + tekst);
+            currentForm.SetText("Wys³ano komunikat do procesu " + odbiorca);
+            currentForm.SetText("Treœæ: " + tekst);
         }
 
-        /*  Funkcja sÅ‚uÅ¼Ä…ca do wysÅ‚ania komunikatu, jako parametr przyjmuje nazwÄ™ procesu odbiorcy, tekst
-komunikatu. Na poczÄ…tku za pomocÄ… funkcji znalezienie_nazwy nastÄ™puje wyszukanie bloku PCB odbiorcy, oraz wykonanie
-na semaforze COMMON operacji P. Utworzony zostaje obiekt komunikatu, ktÃ³ry w parametrze otrzymuje
-tekst komunikatu, temu obiektowi jako wskaÅºnik do nadawcy komunikatu, przypisany jest blok kontrolny
-procesu aktualnie wykonywanego, czyli tego ktÃ³ry wywoÅ‚aÅ‚ funkcjÄ™ wysylania komunikatu. WskaÅºnik na nastÄ™pny komunikat
-jest zerowany. NastÄ™pnie naleÅ¼y dodaÄ‡ obiekt tego komunikatu do jego bloku kontrolnego, gdy nie poosiada
-Å¼adnego komunikatu, to jest on przypisany do wskaÅºnika FIRST_MESSAGE, gdy zaÅ› posiada juÅ¼ jakieÅ›
-komunikaty, to odszukuje siÄ™ ostatni komunikat i w polu next tego komunikatu dodawany jest aktualnie
-wysÅ‚any. Na koÅ„cu wykonywane sÄ… operacje V na semaforach odbiorcy COMMON i RECEIVER. */
+        /*  Funkcja s³u¿¹ca do wys³ania komunikatu, jako parametr przyjmuje nazwê procesu odbiorcy, tekst
+komunikatu. Na pocz¹tku za pomoc¹ funkcji znalezienie_nazwy nastêpuje wyszukanie bloku PCB odbiorcy, oraz wykonanie
+na semaforze COMMON operacji P. Utworzony zostaje obiekt komunikatu, który w parametrze otrzymuje
+tekst komunikatu, temu obiektowi jako wskaŸnik do nadawcy komunikatu, przypisany jest blok kontrolny
+procesu aktualnie wykonywanego, czyli tego który wywo³a³ funkcjê wysylania komunikatu. WskaŸnik na nastêpny komunikat
+jest zerowany. Nastêpnie nale¿y dodaæ obiekt tego komunikatu do jego bloku kontrolnego, gdy nie poosiada
+¿adnego komunikatu, to jest on przypisany do wskaŸnika FIRST_MESSAGE, gdy zaœ posiada ju¿ jakieœ
+komunikaty, to odszukuje siê ostatni komunikat i w polu next tego komunikatu dodawany jest aktualnie
+wys³any. Na koñcu wykonywane s¹ operacje V na semaforach odbiorcy COMMON i RECEIVER. */
         // Tak to powinno wygladac...
 
 
