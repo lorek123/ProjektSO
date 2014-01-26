@@ -171,8 +171,8 @@ namespace ProjektSOFULL.modul_3
                         if (!proces.semafor_info)
                         {
                             proces.waiting = true;
-                            //co tu ma byc????
-                           semafor.p_program(modul_1.Proces x);
+                            //co tu ma byc????//EDIT chyba tak 
+                           semafor.p_program(grupy_procesow[licznik]);
 
                         }
                         proces.stopped = true;
