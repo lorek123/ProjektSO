@@ -45,7 +45,7 @@ namespace ProjektSOFULL.modul_3
             ile = ile + tekst.Length;
             receiver.first_message = receiver.first_message.next;
             currentForm.SetText("Odebrano komunikat od procesu " + nadawca);
-            currentForm.SetText("Tre��: " + tekst);
+            currentForm.SetText("Tresc: " + tekst);
             receiver.message_semaphore_common++;
             return odebrany;
         }
@@ -63,7 +63,7 @@ namespace ProjektSOFULL.modul_3
             {
                 currentForm.SetText("MESSAGE_SEMAPHORE_COMMON: " + receiver.message_semaphore_common);
                 Komunikat nowa = new Komunikat(tekst);
-                nowa.sender_pointer = proces.znalezienie_nazwy(odbiorca, grupa);
+                nowa.sender_pointer = proces.znalezienie_nazwy();
                 nowa.next = null;
                 nowa.size = tekst.Length;
                 if (receiver.first_message == null)
@@ -83,21 +83,11 @@ namespace ProjektSOFULL.modul_3
                 currentForm.SetText("MESSAGE_SEMAPHORE_RECEIVER: " + semafor.get_value());
             }
             receiver.message_semaphore_common++;
-            currentForm.SetText("Wys�ano komunikat do procesu " + odbiorca);
-            currentForm.SetText("Tre��: " + tekst);
+            currentForm.SetText("Wyslano komunikat do procesu " + odbiorca);
+            currentForm.SetText("Tresc: " + tekst);
         }
 
-        /*  Funkcja s�u��ca do wys�ania komunikatu, jako parametr przyjmuje nazw� procesu odbiorcy, tekst
-komunikatu. Na pocz�tku za pomoc� funkcji znalezienie_nazwy nast�puje wyszukanie bloku PCB odbiorcy, oraz wykonanie
-na semaforze COMMON operacji P. Utworzony zostaje obiekt komunikatu, kt�ry w parametrze otrzymuje
-tekst komunikatu, temu obiektowi jako wska�nik do nadawcy komunikatu, przypisany jest blok kontrolny
-procesu aktualnie wykonywanego, czyli tego kt�ry wywo�a� funkcj� wysylania komunikatu. Wska�nik na nast�pny komunikat
-jest zerowany. Nast�pnie nale�y doda� obiekt tego komunikatu do jego bloku kontrolnego, gdy nie poosiada
-�adnego komunikatu, to jest on przypisany do wska�nika FIRST_MESSAGE, gdy za� posiada ju� jakie�
-komunikaty, to odszukuje si� ostatni komunikat i w polu next tego komunikatu dodawany jest aktualnie
-wys�any. Na ko�cu wykonywane s� operacje V na semaforach odbiorcy COMMON i RECEIVER. */
-        // Tak to powinno wygladac...
-
+        
         public void Komunikat_bledu()
         {
             currentForm.SetText("Wystapil blad");

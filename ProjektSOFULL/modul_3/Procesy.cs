@@ -247,11 +247,11 @@ namespace ProjektSOFULL.modul_3
             }
 
         }
-        // Zatrzymanie zlecenia i powiadomienie programu nadzorczego
+       /* // Zatrzymanie zlecenia i powiadomienie programu nadzorczego
         public void Zakonczenie_realizacji_zlecenia(int grupa)
         {
             tekst.Wysylaj_Komunikat("*IBSUP", grupa, "KONIEC ZLECENIA");
-        }
+        } */
     }
     
 }

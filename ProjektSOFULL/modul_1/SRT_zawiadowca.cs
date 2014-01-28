@@ -17,7 +17,7 @@ namespace ProjektSOFULL.modul_1
 
         Form1 currentForm = (Form1)Form1.ActiveForm;
         /*glowna czesc algorytmu*/
-        public SRT_zawiadowca(Proces run, List<Proces> grupy_procesow)
+        public SRT_zawiadowca(Proces run, List<Proces> grupy_procesow, Procesor cpu)
         {
             
             oblicz_czas(run);
@@ -37,8 +37,10 @@ namespace ProjektSOFULL.modul_1
                 {
                     /*  uruchom nowy proces*/
                     run.running = false;
+                    run.cpu_stan_zapisz(cpu);
                     run.czy_sprawdzony = false;
                     grupy_procesow[proces_indeks].running = true;
+                    grupy_procesow[proces_indeks].cpu_stan_wczytaj(cpu);
                     currentForm.SetText("SRT: Uruchomiono proces o nazwie " + grupy_procesow[proces_indeks].proces_name);
                 }
                 else
