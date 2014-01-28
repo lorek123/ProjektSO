@@ -45,7 +45,7 @@ namespace ProjektSOFULL.modul_3
             ile = ile + tekst.Length;
             receiver.first_message = receiver.first_message.next;
             currentForm.SetText("Odebrano komunikat od procesu " + nadawca);
-            currentForm.SetText("Tre��: " + tekst);
+            currentForm.SetText("Tresc: " + tekst);
             receiver.message_semaphore_common++;
             return odebrany;
         }
@@ -83,8 +83,8 @@ namespace ProjektSOFULL.modul_3
                 currentForm.SetText("MESSAGE_SEMAPHORE_RECEIVER: " + semafor.get_value());
             }
             receiver.message_semaphore_common++;
-            currentForm.SetText("Wys�ano komunikat do procesu " + odbiorca);
-            currentForm.SetText("Tre��: " + tekst);
+            currentForm.SetText("Wyslano komunikat do procesu " + odbiorca);
+            currentForm.SetText("Tresc: " + tekst);
         }
 
         
