@@ -49,7 +49,17 @@ namespace ProjektSOFULL.modul_1
             cpu_stan[1] = x.get_r1();
             cpu_stan[2] = x.get_r2();
             cpu_stan[3] = x.get_r3();
+            proces_last_time = x.get_lr() - cpu_stan[4];
             cpu_stan[4] = x.get_lr();
+        }
+
+        public void cpu_stan_wczytaj(Procesor x)
+        {
+            x.set_r0(cpu_stan[0]);
+            x.set_r1(cpu_stan[1]);
+            x.set_r2(cpu_stan[2]);
+            x.set_r3(cpu_stan[3]);
+            x.set_lr(cpu_stan[4]);
         }
 
         public void wyswietl()
