@@ -16,11 +16,18 @@ namespace ProjektSOFULL.modul_1
         private double a = 0.5;
 
         Form1 currentForm = (Form1)Form1.ActiveForm;
+
+
+
         /*glowna czesc algorytmu*/
-        public SRT_zawiadowca(Proces run, List<Proces> grupy_procesow, Procesor cpu)
+        public SRT_zawiadowca()
         {
-            
-            oblicz_czas(run);
+
+
+        }
+
+        public void srt(List<Proces> grupy_procesow, Procesor cpu)
+        {
             foreach (Proces x in grupy_procesow)
             {
                 if (x.blocked == false && x.stopped == false)
@@ -29,7 +36,7 @@ namespace ProjektSOFULL.modul_1
                 }
             }
             currentForm.SetText("SRT: Obliczone nowe czasy przewidywane do konca procesow");
-
+            Proces run = grupy_procesow[proces_aktywny(grupy_procesow)];
             proces_indeks = min_czas(run, grupy_procesow);
             if (proces_indeks >= 0)
             {
@@ -63,7 +70,16 @@ namespace ProjektSOFULL.modul_1
                 x.czy_sprawdzony = true;
             }
         }
+        /*wyszukiwanie aktywnego procesu*/
+        private int proces_aktywny(List<Proces> lista)
+        {
+            int a = -1;
+            foreach (Proces x in lista)
+                if (x.running == true)
+                    a = lista.IndexOf(x);
 
+            return a;
+        }
         /*wyszukiwanie minimalnego czasu procesu*/
         int min_czas(Proces a, List<Proces> grupy_procesow)
         {

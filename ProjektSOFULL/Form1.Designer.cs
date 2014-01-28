@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.czytnik1 = new System.Windows.Forms.TextBox();
             this.drukarka1 = new System.Windows.Forms.TextBox();
             this.czytnik2 = new System.Windows.Forms.TextBox();
@@ -47,147 +48,96 @@
             // 
             // czytnik1
             // 
-            this.czytnik1.Location = new System.Drawing.Point(53, 28);
-            this.czytnik1.Multiline = true;
+            resources.ApplyResources(this.czytnik1, "czytnik1");
             this.czytnik1.Name = "czytnik1";
-            this.czytnik1.Size = new System.Drawing.Size(192, 195);
-            this.czytnik1.TabIndex = 0;
             // 
             // drukarka1
             // 
-            this.drukarka1.Location = new System.Drawing.Point(53, 265);
-            this.drukarka1.Multiline = true;
+            resources.ApplyResources(this.drukarka1, "drukarka1");
             this.drukarka1.Name = "drukarka1";
             this.drukarka1.ReadOnly = true;
-            this.drukarka1.Size = new System.Drawing.Size(192, 195);
-            this.drukarka1.TabIndex = 1;
             // 
             // czytnik2
             // 
-            this.czytnik2.Location = new System.Drawing.Point(292, 28);
-            this.czytnik2.Multiline = true;
+            resources.ApplyResources(this.czytnik2, "czytnik2");
             this.czytnik2.Name = "czytnik2";
-            this.czytnik2.Size = new System.Drawing.Size(192, 195);
-            this.czytnik2.TabIndex = 2;
             // 
             // logger
             // 
-            this.logger.Location = new System.Drawing.Point(640, 28);
-            this.logger.Multiline = true;
+            resources.ApplyResources(this.logger, "logger");
             this.logger.Name = "logger";
             this.logger.ReadOnly = true;
-            this.logger.Size = new System.Drawing.Size(307, 409);
-            this.logger.TabIndex = 3;
             // 
             // drukarka2
             // 
-            this.drukarka2.Location = new System.Drawing.Point(292, 265);
-            this.drukarka2.Multiline = true;
+            resources.ApplyResources(this.drukarka2, "drukarka2");
             this.drukarka2.Name = "drukarka2";
             this.drukarka2.ReadOnly = true;
-            this.drukarka2.Size = new System.Drawing.Size(192, 195);
-            this.drukarka2.TabIndex = 4;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(126, 12);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Czytnik 1";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(375, 9);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Czytnik 2";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(116, 242);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Drukarka 1";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(365, 242);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Drukarka 2";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(776, 9);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Logger";
             // 
             // zaladuj1
             // 
-            this.zaladuj1.Location = new System.Drawing.Point(536, 133);
+            resources.ApplyResources(this.zaladuj1, "zaladuj1");
             this.zaladuj1.Name = "zaladuj1";
-            this.zaladuj1.Size = new System.Drawing.Size(75, 23);
-            this.zaladuj1.TabIndex = 10;
-            this.zaladuj1.Text = "Zaladuj1";
             this.zaladuj1.UseVisualStyleBackColor = true;
             this.zaladuj1.Click += new System.EventHandler(this.zaladuj1_Click);
             // 
             // zaladuj2
             // 
-            this.zaladuj2.Location = new System.Drawing.Point(536, 260);
+            resources.ApplyResources(this.zaladuj2, "zaladuj2");
             this.zaladuj2.Name = "zaladuj2";
-            this.zaladuj2.Size = new System.Drawing.Size(75, 23);
-            this.zaladuj2.TabIndex = 11;
-            this.zaladuj2.Text = "Zaladuj2";
             this.zaladuj2.UseVisualStyleBackColor = true;
             this.zaladuj2.Click += new System.EventHandler(this.zaladuj2_Click);
             // 
             // start
             // 
-            this.start.Location = new System.Drawing.Point(536, 28);
+            resources.ApplyResources(this.start, "start");
             this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(75, 23);
-            this.start.TabIndex = 12;
-            this.start.Text = "Uruchom";
             this.start.UseVisualStyleBackColor = true;
             this.start.Click += new System.EventHandler(this.start_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(536, 162);
+            resources.ApplyResources(this.button1, "button1");
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Czysc1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(536, 289);
+            resources.ApplyResources(this.button2, "button2");
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Czysc2";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 485);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.start);
@@ -204,7 +154,6 @@
             this.Controls.Add(this.drukarka1);
             this.Controls.Add(this.czytnik1);
             this.Name = "Form1";
-            this.Text = "System SO FULL";
             this.ResumeLayout(false);
             this.PerformLayout();
 

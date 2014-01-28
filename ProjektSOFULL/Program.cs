@@ -12,7 +12,7 @@ namespace ProjektSOFULL
 {
     static class Program
     {
-        public static Kernel jadro = new Kernel();
+       
         [STAThread]
         static void Main()
         {
@@ -38,11 +38,7 @@ namespace ProjektSOFULL
         public static void system_up()
         {
             Form1 currentForm = (Form1)Form1.ActiveForm;
-            
-            //currentForm.SetText("Witamy w systemie PROJEKT SO FULL");
-            IPLRTN x = new IPLRTN();
-            
-
+            IPLRTN x = new IPLRTN(); 
         }
     }
 }

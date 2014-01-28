@@ -8,7 +8,7 @@ namespace ProjektSOFULL.modul_5
 {
     public class Proces_nadzorczy
     {
-        string nazwa = "*IBSUP";
+        public string nazwa = "";
         string wejscie = "*IN";
         string wyjscie = "*OUT";
         public List<string> memory;
