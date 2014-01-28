@@ -24,22 +24,6 @@ namespace ProjektSOFULL
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         /*logger*/
         public void SetText(string text)
         {
@@ -56,18 +40,18 @@ namespace ProjektSOFULL
         /*wczytywanie do bufora z czytnikow*/
         private void zaladuj1_Click(object sender, EventArgs e)
         {
-            //pomocniczy = czytnik1_string.Text;
-            //czytnik1_string = pomocniczy.Split('\n');
-            //foreach (string x in czytnik1_string)
-             //   drukarka.Text += x + "\n";
+            pomocniczy = czytnik1.Text;
+            czytnik1_string = pomocniczy.Split('\n');
+            // foreach (string x in czytnik1_string)
+            //   set_drukarka1(x + "\n");
         }
 
         private void zaladuj2_Click(object sender, EventArgs e)
         {
-            //pomocniczy = czytnik2_string.Text;
-            //czytnik2_string = pomocniczy.Split('\n');
-            //foreach (string x in czytnik1_string)
-            //   drukarka.Text += x + "\n";
+            pomocniczy = czytnik2.Text;
+            czytnik2_string = pomocniczy.Split('\n');
+            //foreach (string x in czytnik2_string)
+            //    set_drukarka2(x + "\n");
         }
 
         /*pobranie wartosci czytnikow*/
@@ -118,6 +102,17 @@ namespace ProjektSOFULL
         private void InitSO()
         {
             SetText("Nastepuje uruchomienie systemu");
+        }
+
+        /*czysc1*/
+        private void button1_Click(object sender, EventArgs e)
+        {
+            drukarka1.Clear();
+        }
+        /*czysc2*/
+        private void button2_Click(object sender, EventArgs e)
+        {
+            drukarka2.Clear();
         }
     }
 }

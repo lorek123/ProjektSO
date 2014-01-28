@@ -77,8 +77,5 @@ namespace ProjektSOFULL.modul_1
             lr = value;
             currentForm.SetText("PROCESOR: Nowa wartosc lr: " + value.ToString());
         }
-
-
     }
-
 }
