@@ -13,7 +13,7 @@ namespace ProjektSOFULL.modul_1
         private int r2;
         private int r3;
         private int lr;
-
+        
         /*getery*/
         public int get_r0()
         {

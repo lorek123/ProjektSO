@@ -18,12 +18,12 @@ namespace ProjektSOFULL.modul_1
         Form1 currentForm = (Form1)Form1.ActiveForm;
 
 
-
+        
         /*glowna czesc algorytmu*/
         public SRT_zawiadowca()
         {
-
-
+            
+            
         }
 
         public void srt(List<Proces> grupy_procesow, Procesor cpu)
@@ -70,7 +70,7 @@ namespace ProjektSOFULL.modul_1
                 x.czy_sprawdzony = true;
             }
         }
-        /*wyszukiwanie aktywnego procesu*/
+         /*wyszukiwanie aktywnego procesu*/
         private int proces_aktywny(List<Proces> lista)
         {
             int a = -1;
