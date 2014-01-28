@@ -9,7 +9,7 @@ namespace ProjektSOFULL.modul_5
         public class Interpreter
         {
            Form1 currentForm = (Form1)Form1.ActiveForm;
-            public void find(string rozkaz, ref modul_1.Procesor CPU, int doskoku = 0)
+           public void find(string rozkaz, ref modul_1.Procesor CPU, ref List<string> pamiec_procesu, int doskoku = 0)
             {
                 string temp;
                 temp = rozkaz.Split(" ".ToCharArray()).First();
@@ -39,7 +39,7 @@ namespace ProjektSOFULL.modul_5
                         zakoncz_blad();
                         break;
                     case "skok_zero":
-                        skok_zero(rozkaz.Split(" ".ToCharArray()).Last(), doskoku, ref CPU);
+                        skok_zero(rozkaz.Split(" ".ToCharArray()).Last(), doskoku, ref CPU, ref pamiec_procesu);
 
                         break;
 

@@ -61,6 +61,7 @@
     <Compile Include="modul_4\urzadzenie.cs" />
     <Compile Include="modul_5\Interpreter.cs" />
     <Compile Include="modul_5\IPLRTN.cs" />
+    <Compile Include="modul_5\Kernel.cs" />
     <Compile Include="modul_5\Ladowanie.cs" />
     <Compile Include="modul_5\Proces_nadzorczy.cs" />
     <Compile Include="Program.cs" />

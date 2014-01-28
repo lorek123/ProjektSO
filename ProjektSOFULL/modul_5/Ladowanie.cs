@@ -8,21 +8,22 @@ namespace ProjektSOFULL.modul_5
 {
         class Ladowanie
         {
-            void Load()
+            void Load(ref Proces_nadzorczy Nadzorca)
             {
                 string temp;
-                for (int i = 0; i <= Proces_nadzorczy.memory.Count(); i++)
+                for (int i = 0; i <= Nadzorca.memory.Count(); i++)
                 {
-                    temp = getline();
-                    Interpreter.find(temp);
-
+                    temp = Nadzorca.memory[i];
+                    Interpreter.find(temp,ref Program.jadro.CPU,ref Nadzorca.memory);
                 }
 
 
             }
 
             int wielkosc_pamieci;
-            private string getline() { return "a"; }
+            private string getline() { 
+                
+                return ""; }
             bool utworz_urzadzenie_wejscia(string nazwa) { return true; }
             bool utworz_urzadzenie_wyjscia(string nazwa) { return true; }
 
@@ -53,7 +54,7 @@ namespace ProjektSOFULL.modul_5
                 //    wielkosc_pamieci = Convert.ToInt32(daneJob[1]);
                 scan(daneJob[2]);
                 scan(daneJob[3]);
-                Load();
+                Load(ref );
             }
             private bool scan(string dane)
             {

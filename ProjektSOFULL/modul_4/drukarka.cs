@@ -9,6 +9,7 @@ namespace ProjektSOFULL.modul_4
     public class drukarka : urzadzenie
     {
         Form1 currentForm = (Form1)Form1.ActiveForm;
+        
         public void print(string do_druku, int nr_dr)
         {
             if (nr_dr == 1)
