@@ -63,7 +63,7 @@ namespace ProjektSOFULL.modul_3
             {
                 currentForm.SetText("MESSAGE_SEMAPHORE_COMMON: " + receiver.message_semaphore_common);
                 Komunikat nowa = new Komunikat(tekst);
-                nowa.sender_pointer = proces.znalezienie_nazwy(odbiorca, grupa);
+                nowa.sender_pointer = proces.znalezienie_nazwy();
                 nowa.next = null;
                 nowa.size = tekst.Length;
                 if (receiver.first_message == null)
