@@ -134,7 +134,6 @@ namespace ProjektSOFULL.modul_5
             }
             void wypisz(string a) 
             {
-
                 Form1 currentForm = (Form1)Form1.ActiveForm;
                 currentForm.SetText(a);
             }

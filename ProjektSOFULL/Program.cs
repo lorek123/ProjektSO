@@ -40,7 +40,7 @@ namespace ProjektSOFULL
             Form1 currentForm = (Form1)Form1.ActiveForm;
             
             //currentForm.SetText("Witamy w systemie PROJEKT SO FULL");
-            modul_5.IPLRTN x = new modul_5.IPLRTN();
+            IPLRTN x = new IPLRTN();
             
 
         }
