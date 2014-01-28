@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace ProjektSOFULL.modul_5
 {
-    class IPLRTN
+    public class IPLRTN
     {
         Form1 currentForm = (Form1)Form1.ActiveForm;
         IPLRTN(){

@@ -8,7 +8,6 @@ namespace ProjektSOFULL.modul_5
 {
         public class Interpreter
         {
-           Form1 currentForm = (Form1)Form1.ActiveForm;
            public void find(string rozkaz, modul_1.Procesor CPU,ref List<string> pamiec_procesu, int doskoku = 0)
             {
                 string temp;
@@ -51,16 +50,22 @@ namespace ProjektSOFULL.modul_5
             }
             void dodaj(int a,ref modul_1.Procesor CPU)
             {
+
+                Form1 currentForm = (Form1)Form1.ActiveForm;
                 CPU.set_r0(CPU.get_r0() + a);
                 currentForm.SetText("dodano " + a);
             }
             void odejmij(int a, ref modul_1.Procesor CPU)
             {
+
+                Form1 currentForm = (Form1)Form1.ActiveForm;
                 CPU.set_r0(CPU.get_r0() - a);
                 currentForm.SetText("odjeto " + a);
             }
             void pomnoz(int a,ref modul_1.Procesor CPU)
             {
+
+                Form1 currentForm = (Form1)Form1.ActiveForm;
                 CPU.set_r0(CPU.get_r0() * a);
                 currentForm.SetText("pomnozono przez " + a);
             }
@@ -68,6 +73,8 @@ namespace ProjektSOFULL.modul_5
             {
                 try
                 {
+
+                    Form1 currentForm = (Form1)Form1.ActiveForm;
                     CPU.set_r0(CPU.get_r0() / a);
                     currentForm.SetText("podzielono przez " + a);
                 }
@@ -79,19 +86,27 @@ namespace ProjektSOFULL.modul_5
             }
             void zeruj(ref modul_1.Procesor CPU)
             {
+
+                Form1 currentForm = (Form1)Form1.ActiveForm;
                 CPU.set_r0(0);
                 currentForm.SetText("wyzerowano akumulator");
             }
             void zakoncz_blad() {
+
+                Form1 currentForm = (Form1)Form1.ActiveForm;
                 currentForm.SetText("Program nie zakonczyl sie pomyslnie");
             }
             void zakoncz() {
+
+                Form1 currentForm = (Form1)Form1.ActiveForm;
                 currentForm.SetText("program zakonczyl sie pomyslnie!" );
             }
             int skok_zero(string a, int i, ref modul_1.Procesor CPU,ref List<string> pamiec_procesu)
             {
                 if (CPU.get_r0() == 0)
                 {
+
+                    Form1 currentForm = (Form1)Form1.ActiveForm;
                     i = pamiec_procesu.FindIndex(x => x.Contains(a));
                     currentForm.SetText("wykonano skok");
                     return i;
@@ -106,6 +121,8 @@ namespace ProjektSOFULL.modul_5
             {
                 if (CPU.get_r0() != 0)
                 {
+
+                    Form1 currentForm = (Form1)Form1.ActiveForm;
                     i = pamiec_procesu.FindIndex(x => x.Contains(a));
                     currentForm.SetText("wykonano skok");
                     return i;
@@ -117,6 +134,8 @@ namespace ProjektSOFULL.modul_5
             }
             void wypisz(string a) 
             {
+
+                Form1 currentForm = (Form1)Form1.ActiveForm;
                 currentForm.SetText(a);
             }
             
