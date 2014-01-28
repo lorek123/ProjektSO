@@ -58,7 +58,6 @@
     <Compile Include="modul_3\Procesy.cs" />
     <Compile Include="modul_4\czytnik.cs" />
     <Compile Include="modul_4\drukarka.cs" />
-    <Compile Include="modul_4\urzadzenie.cs" />
     <Compile Include="modul_5\Interpreter.cs" />
     <Compile Include="modul_5\IPLRTN.cs" />
     <Compile Include="modul_5\Kernel.cs" />

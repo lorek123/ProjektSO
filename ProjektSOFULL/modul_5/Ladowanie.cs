@@ -8,13 +8,14 @@ namespace ProjektSOFULL.modul_5
 {
         class Ladowanie
         {
-            void Load(ref Proces_nadzorczy Nadzorca)
+            Interpreter _interpreter = new Interpreter();
+            void Load(Proces_nadzorczy Nadzorca, modul_1.Procesor CPU)
             {
                 string temp;
                 for (int i = 0; i <= Nadzorca.memory.Count(); i++)
                 {
                     temp = Nadzorca.memory[i];
-                    Interpreter.find(temp,ref Program.jadro.CPU,ref Nadzorca.memory);
+                    _interpreter.find(temp, CPU,ref Nadzorca.memory);
                 }
 
 
@@ -31,7 +32,7 @@ namespace ProjektSOFULL.modul_5
             {
                 return a;
             }
-            private void job()
+            private void job(modul_5.Proces_nadzorczy proces_nadzorczy, modul_1.Procesor CPU)
             {
 
                 string aktualnaLinia;
@@ -54,7 +55,7 @@ namespace ProjektSOFULL.modul_5
                 //    wielkosc_pamieci = Convert.ToInt32(daneJob[1]);
                 scan(daneJob[2]);
                 scan(daneJob[3]);
-                Load(ref );
+                Load(proces_nadzorczy,CPU);
             }
             private bool scan(string dane)
             {
