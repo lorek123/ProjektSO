@@ -49,6 +49,7 @@ namespace ProjektSOFULL.modul_5
                 {
                     _procesy.usuniecie_procesu(Nadzorca.nazwa, int.Parse(Nadzorca.nazwa) - 1);  
                }
+                Thread.Sleep(1000);
             }
 
 
