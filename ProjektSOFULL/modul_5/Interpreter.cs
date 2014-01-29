@@ -8,7 +8,7 @@ namespace ProjektSOFULL.modul_5
 {
         public class Interpreter
         {
-           public void find(string rozkaz, modul_1.Procesor CPU,ref List<string> pamiec_procesu, int doskoku = 0)
+           public void find(string rozkaz, modul_1.Procesor CPU,ref List<string> pamiec_procesu,ref int doskoku)
             {
                 string temp;
                 temp = rozkaz.Split(" ".ToCharArray()).First();
@@ -38,12 +38,12 @@ namespace ProjektSOFULL.modul_5
                         zakoncz_blad();
                         break;
                     case "skok_zero":
-                        skok_zero(rozkaz.Split(" ".ToCharArray()).Last(), doskoku, ref CPU, ref pamiec_procesu);
+                        skok_zero(int.Parse(rozkaz.Split(" ".ToCharArray()).Last()),  ref CPU, ref pamiec_procesu);
 
                         break;
 
                     case "skok_nzero":
-                        skok_zero(rozkaz.Split(" ".ToCharArray()).Last(), doskoku, ref CPU,ref pamiec_procesu);
+                        skok_nzero(int.Parse(rozkaz.Split(" ".ToCharArray()).Last()), ref CPU,ref pamiec_procesu);
                         break;
                 }
 
@@ -100,36 +100,34 @@ namespace ProjektSOFULL.modul_5
 
                 Form1 currentForm = (Form1)Form1.ActiveForm;
                 currentForm.SetText("program zakonczyl sie pomyslnie!" );
+
             }
-            int skok_zero(string a, int i, ref modul_1.Procesor CPU,ref List<string> pamiec_procesu)
+            int skok_zero(int aktualna_linia, ref modul_1.Procesor CPU,ref List<string> pamiec_procesu)
             {
-                if (CPU.get_r0() == 0)
+                if (CPU.get_r1() == 0)
                 {
 
                     Form1 currentForm = (Form1)Form1.ActiveForm;
-                    i = pamiec_procesu.FindIndex(x => x.Contains(a));
                     currentForm.SetText("wykonano skok");
-                    return i;
+                    return aktualna_linia;
                 }
                 else
                 {
-                    return i;
+                    return aktualna_linia+1;
                 }
 
             }
-            int skok_nzero(string a, int i, ref modul_1.Procesor CPU, ref List<string> pamiec_procesu)
+            int skok_nzero(int aktualna_linia, ref modul_1.Procesor CPU, ref List<string> pamiec_procesu)
             {
-                if (CPU.get_r0() != 0)
+                if (CPU.get_r1() != 0)
                 {
-
                     Form1 currentForm = (Form1)Form1.ActiveForm;
-                    i = pamiec_procesu.FindIndex(x => x.Contains(a));
                     currentForm.SetText("wykonano skok");
-                    return i;
+                    return aktualna_linia;
                 }
                 else
                 {
-                    return i;
+                    return aktualna_linia + 1;
                 }
             }
             void wypisz(string a) 

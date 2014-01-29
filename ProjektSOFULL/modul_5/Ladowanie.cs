@@ -9,7 +9,7 @@ namespace ProjektSOFULL.modul_5
        public class Ladowanie
         {
             Interpreter _interpreter = new Interpreter();
-            modul_3.Procesy _procesy = new modul_3.Procesy();
+           public  modul_3.Procesy _procesy = new modul_3.Procesy();
             modul_1.SRT_zawiadowca zawiadowca = new modul_1.SRT_zawiadowca();
             public void Load(Proces_nadzorczy Nadzorca, modul_1.Procesor CPU)
             {
@@ -17,12 +17,19 @@ namespace ProjektSOFULL.modul_5
                 _procesy.tworzenie_procesu(Nadzorca.nazwa, int.Parse(Nadzorca.nazwa)-1, Nadzorca.memory.Count());
 
                 string temp;
+                bool skok= false;
+                int adres_skoku=0;
                 for (int i = _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].cpu_stan[4]; i <= Nadzorca.memory.Count(); i++)
                 {
-                 
-                    temp = Nadzorca.memory[i];
-                    _interpreter.find(temp, CPU,ref Nadzorca.memory);
                     
+                    temp = Nadzorca.memory[i];
+                    _interpreter.find(temp, CPU,ref Nadzorca.memory,ref adres_skoku);
+                    CPU.set_lr(CPU.get_lr() + 1);
+                    zawiadowca.srt(_procesy.grupy_procesow, CPU);
+                    if (!_procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].running)
+                    {
+                        break;
+                    }
                 }
 
 

@@ -51,7 +51,34 @@ namespace ProjektSOFULL.modul_5
 
                     }
                     Thread.Sleep(1000);
-                    proces_ladowania.job(Lista_modulow_nadzorczych[0],CPU);
+
+                    while (true)
+                    {
+                        try
+                        {
+                            if (proces_ladowania._procesy.grupy_procesow[0] != null){
+                                if (proces_ladowania._procesy.grupy_procesow[0].running)
+                                {
+                                    proces_ladowania.job(Lista_modulow_nadzorczych[0], CPU);
+                                }
+                            }
+                            else {
+                                if (proces_ladowania._procesy.grupy_procesow[1] != null)
+                                {
+                                    if (proces_ladowania._procesy.grupy_procesow[1].running)
+                                    {
+                                        proces_ladowania.job(Lista_modulow_nadzorczych[1], CPU);
+                                    }
+                                }
+                            }
+                        }
+                        catch (System.Exception ex)
+                        {
+                            currentForm.SetText(ex.StackTrace);
+                        }
+
+
+                    }
                 }
             }
         }
