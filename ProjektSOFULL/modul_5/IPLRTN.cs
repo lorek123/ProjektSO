@@ -28,17 +28,19 @@ namespace ProjektSOFULL.modul_5
             while (true)
             {
 
-                if (String.IsNullOrEmpty(currentForm.get_czytnik1().ElementAt(0)) && String.IsNullOrEmpty(currentForm.get_czytnik2().ElementAt(0)))
+                if (!(String.IsNullOrEmpty(currentForm.get_czytnik1().ElementAt(0))) && !(String.IsNullOrEmpty(currentForm.get_czytnik2().ElementAt(0))))
                 {
+                    Lista_modulow_nadzorczych.Add(new Proces_nadzorczy());
                     Lista_modulow_nadzorczych[0].memory = currentForm.get_czytnik1().ToList();
                     Lista_modulow_nadzorczych[0].nazwa = "1";
+                    Lista_modulow_nadzorczych.Add(new Proces_nadzorczy());
                     Lista_modulow_nadzorczych[1].memory = currentForm.get_czytnik2().ToList();
                     Lista_modulow_nadzorczych[1].nazwa = "2";
                     break;
                 }
                 else
                 {
-                    if (!(String.IsNullOrEmpty(currentForm.get_czytnik1().ElementAt(0)) && String.IsNullOrEmpty(currentForm.get_czytnik2().ElementAt(0))))
+                    if ((String.IsNullOrEmpty(currentForm.get_czytnik1().ElementAt(0)) && String.IsNullOrEmpty(currentForm.get_czytnik2().ElementAt(0))))
                     {
                         currentForm.set_drukarka2("Wprowadz kod programu");
                         currentForm.set_drukarka1("Wprowadz kod programu");
@@ -53,39 +55,42 @@ namespace ProjektSOFULL.modul_5
 
                     }
                     Thread.Sleep(1000);
-
-                    while (true)
-                    {
-                        try
-                        {
-                            if (proces_ladowania._procesy.grupy_procesow[0] != null){
-                                if (proces_ladowania._procesy.grupy_procesow[0].running)
-                                {
-                                    proces_ladowania.job(_ladowanie._procesy, Lista_modulow_nadzorczych[0], CPU);
-                                }
-                            }
-                            else {
-                                if (proces_ladowania._procesy.grupy_procesow[1] != null)
-                                {
-                                    if (proces_ladowania._procesy.grupy_procesow[1].running)
-                                    {
-                                        proces_ladowania.job(_ladowanie._procesy,Lista_modulow_nadzorczych[1], CPU);
-                                    }
-                                }
-                            }
-                        }
-                        catch (System.Exception ex)
-                        {
-                            currentForm.SetText(ex.StackTrace);
-                        }
-
-
-                    }
                 }
             }
+           //zrob jak wyzej z new
+            while (true)
+            {
+                try
+                {
+                    if (proces_ladowania._procesy.grupy_procesow.Any())
+                    {
+                        if (proces_ladowania._procesy.grupy_procesow[0].running)
+                        {
+                            currentForm.SetText("1");
+                            proces_ladowania.job(_ladowanie._procesy, Lista_modulow_nadzorczych[0], CPU);
+                        }
+                    }
+                    else
+                    {
+                        if (proces_ladowania._procesy.grupy_procesow.Any())
+                        {
+                            if (proces_ladowania._procesy.grupy_procesow[1].running)
+                            {
+                                currentForm.SetText("2");
+                                proces_ladowania.job(_ladowanie._procesy, Lista_modulow_nadzorczych[1], CPU);
+                            }
+                        }
+                    }
+                }
+                catch (System.Exception ex)
+                {
+                    currentForm.SetText(ex.StackTrace);
+                }
+
+
+            }
         }
-
-
     }
 }
+
 
