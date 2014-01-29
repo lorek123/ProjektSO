@@ -14,6 +14,7 @@ namespace ProjektSOFULL
     {
         public delegate void SetTextDelegate(String text);
         public delegate void GetTextDelegate(String text);
+        private Thread system;
         String[] czytnik1_string = new String[100];
         String[] czytnik2_string = new String[100];
         String pomocniczy;
@@ -22,6 +23,7 @@ namespace ProjektSOFULL
         public Form1()
         {
             InitializeComponent();
+            System.Windows.Forms.Application.ApplicationExit += new System.EventHandler(ApplicationExitHandler);
         }
 
         /*logger*/
@@ -42,16 +44,12 @@ namespace ProjektSOFULL
         {
             pomocniczy = czytnik1.Text;
             czytnik1_string = pomocniczy.Split('\n');
-            // foreach (string x in czytnik1_string)
-            //   set_drukarka1(x + "\n");
         }
 
         private void zaladuj2_Click(object sender, EventArgs e)
         {
             pomocniczy = czytnik2.Text;
             czytnik2_string = pomocniczy.Split('\n');
-            //foreach (string x in czytnik2_string)
-            //    set_drukarka2(x + "\n");
         }
 
         /*pobranie wartosci czytnikow*/
@@ -95,7 +93,7 @@ namespace ProjektSOFULL
         private void start_Click(object sender, EventArgs e)
         {
             InitSO();
-            Thread system = new Thread(new ThreadStart(Program.system_up));
+            system = new Thread(new ThreadStart(Program.system_up));
             system.Start();
         }
 
@@ -114,5 +112,16 @@ namespace ProjektSOFULL
         {
             drukarka2.Clear();
         }
+
+
+        private void ApplicationExitHandler(Object sender, EventArgs e)
+        {
+            system.Abort();
+            System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
+            messageBoxCS.AppendFormat("Wylaczanie systemu");
+            MessageBox.Show(messageBoxCS.ToString(), "FormClosing Event");
+            
+        }
+       
     }
 }

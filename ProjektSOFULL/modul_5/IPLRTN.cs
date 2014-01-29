@@ -44,20 +44,22 @@ namespace ProjektSOFULL.modul_5
                     {
                         currentForm.set_drukarka2("Wprowadz kod programu");
                         currentForm.set_drukarka1("Wprowadz kod programu");
-                    }
+                    } else
                     if (String.IsNullOrEmpty(currentForm.get_czytnik1().ElementAt(0)))
                     {
-                        currentForm.set_drukarka2("Wprowadz kod programu");
+                        currentForm.set_drukarka1("Wprowadz kod programu");
                     }
                     else
                     {
-                        currentForm.set_drukarka1("Wprowadz kod programu");
+                        currentForm.set_drukarka2("Wprowadz kod programu");
 
                     }
                     Thread.Sleep(1000);
                 }
             }
-           //zrob jak wyzej z new
+            proces_ladowania._procesy.grupy_procesow.Add(new modul_1.Proces());
+            proces_ladowania._procesy.grupy_procesow.Add(new modul_1.Proces());
+            proces_ladowania._procesy.grupy_procesow[0].running = true;
             while (true)
             {
                 try
@@ -66,7 +68,6 @@ namespace ProjektSOFULL.modul_5
                     {
                         if (proces_ladowania._procesy.grupy_procesow[0].running)
                         {
-                            currentForm.SetText("1");
                             proces_ladowania.job(_ladowanie._procesy, Lista_modulow_nadzorczych[0], CPU);
                         }
                     }
@@ -75,8 +76,7 @@ namespace ProjektSOFULL.modul_5
                         if (proces_ladowania._procesy.grupy_procesow.Any())
                         {
                             if (proces_ladowania._procesy.grupy_procesow[1].running)
-                            {
-                                currentForm.SetText("2");
+                            { 
                                 proces_ladowania.job(_ladowanie._procesy, Lista_modulow_nadzorczych[1], CPU);
                             }
                         }

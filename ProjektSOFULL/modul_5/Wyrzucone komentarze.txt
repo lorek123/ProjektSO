@@ -1,0 +1,55 @@
+﻿z job
+ /*      if (!czyPamiecJestDostepna(Convert.ToInt32(daneJob[1])))
+                      {
+                          expunge();
+                          return;
+                      }
+                 */
+                //    wielkosc_pamieci = Convert.ToInt32(daneJob[1]);
+                //scan(daneJob[2]);
+               // scan(daneJob[3]);
+
+			   /* private bool scan(string dane)
+            {
+                if (!dane.StartsWith("IN"))
+                {
+                    expunge();
+                    return false;
+                }
+                else if (dane.StartsWith("IN"))
+                {
+                    string[] temp = dane.Split('=');
+                    utworz_urzadzenie_wejscia(temp[1]);
+
+                }
+                if (!dane.StartsWith("OUT"))
+                {
+                    expunge();
+                    return false;
+                }
+                else if (dane.StartsWith("OUT"))
+                {
+                    string[] temp = dane.Split('=');
+                    utworz_urzadzenie_wyjscia(temp[1]);
+
+                }
+
+                return false;
+            }
+            */
+
+			//string[] a = pobierzPCBzRunning();
+                // string nazwa= a[1];
+                // if(!nazwa.startsWith('*')){ 
+                //lista_procesow.grupy_procesow.RemoveAt(int.Parse(Nadzorca.nazwa));
+                //zatrzymajProces(); 
+                //usunProces();  
+                //  if(czyPrzydzielonoPamiec()){
+                //  zerujKluczeOchronyPamieci();
+                //  zwolnijPamiec();
+                //  }
+                //
+                //}
+                //string linia= getline();
+                //if(!linia.StartsWith(""$JOB"){return;}
+                //job();

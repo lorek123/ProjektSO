@@ -42,6 +42,7 @@ namespace ProjektSOFULL.modul_1
             instruction_done = 0;
             czy_sprawdzony = true;
         }
+        public Proces() { }
 
         public void cpu_stan_zapisz(Procesor x)
         {
