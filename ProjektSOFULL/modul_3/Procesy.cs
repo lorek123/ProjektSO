@@ -50,7 +50,9 @@ namespace ProjektSOFULL.modul_3
             if (!istnieje)
             {
                 grupy_procesow.Add(new modul_1.Proces(nazwa, czas, numer));
-                currentForm.SetText("Utworzono proces" + nazwa + " jego czas to " + grupy_procesow[(numer)].proces_estimated_time.ToString() + " DEKLAROWANY CZAS " + czas);
+                currentForm.SetText("PROCESY: Utworzono proces" + nazwa);
+               // tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);
+
             }
         }
 
