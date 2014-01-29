@@ -78,11 +78,11 @@ namespace ProjektSOFULL.modul_3
                     break;
 
                 }
-                else
+               /* else
                 {
                     tekst.Komunikat_bledu();
                     break;
-                }
+                }*/
 
             }
             if (istnieje)
@@ -196,6 +196,8 @@ namespace ProjektSOFULL.modul_3
 
             foreach (modul_1.Proces proces in grupy_procesow)
             {
+
+                currentForm.SetText("proces nazwa i grupa : " + proces.proces_name + " " + proces.group_indeks + "WYSZUKIWANE: " + nazwa + " " + numer);
                 if (proces.group_indeks == numer && proces.proces_name == nazwa)
                 {
                     licznik = grupy_procesow.IndexOf(proces);
@@ -209,11 +211,11 @@ namespace ProjektSOFULL.modul_3
                     break;
 
                 }
-                else
+               /* else
                 {
                     tekst.Komunikat_bledu();
                     break;
-                }
+                }*/
 
             }
         }

@@ -55,14 +55,14 @@ namespace ProjektSOFULL
         /*pobranie wartosci czytnikow*/
         public string[] get_czytnik1()
         {
-            pomocniczy = "sadsadsa\nasd\naef\nauihe\neohfes\noasebfs";
+            pomocniczy = "11\n12\n13\n14\n15\n16";
             czytnik1_string = pomocniczy.Split('\n');
             return czytnik1_string;
         }
 
         public string[] get_czytnik2()
         {
-            pomocniczy = "sadsadsa\nasd\naef\nauihe";
+            pomocniczy = "21\n22\n23\n24";
             czytnik2_string = pomocniczy.Split('\n');
             return czytnik2_string;
         }

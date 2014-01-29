@@ -28,16 +28,22 @@ namespace ProjektSOFULL.modul_5
             for (int i = _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].cpu_stan[4]; i < Nadzorca.memory.Count(); i++)
             {
                 temp = Nadzorca.memory[i];
-                currentForm.SetText("Akutalna linia " + temp +"!!!");
-                Thread.Sleep(1500);
-                _interpreter.find(temp, CPU, ref Nadzorca.memory, ref adres_skoku);
-                cpu_value = CPU.get_lr() + 1;
-                CPU.set_lr(cpu_value, _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].proces_name);
-                zawiadowca.srt(_procesy.grupy_procesow, CPU);
-                if (!_procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].running)
+                Thread.Sleep(500);
+                if (cpu_value < Nadzorca.memory.Count() - 1)
                 {
-                    break;
+                    _interpreter.find(temp, CPU, ref Nadzorca.memory, ref adres_skoku);
+                    cpu_value = CPU.get_lr() + 1;
+                    CPU.set_lr(cpu_value, _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].proces_name);
+                    zawiadowca.srt(_procesy.grupy_procesow, CPU);
+                    if (!_procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].running)
+                    {
+                        break;
+                    }
                 }
+                else
+                {
+                    _procesy.usuniecie_procesu(Nadzorca.nazwa, int.Parse(Nadzorca.nazwa) - 1);  
+               }
             }
 
 

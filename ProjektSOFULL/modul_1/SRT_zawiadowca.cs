@@ -22,6 +22,8 @@ namespace ProjektSOFULL.modul_1
 
         public void srt(List<Proces> grupy_procesow, Procesor cpu)
         {
+            if(grupy_procesow.Count == 1)
+                proces_indeks = 0;
             foreach (Proces x in grupy_procesow)
             {
                 if (x.blocked == false && x.stopped == false)

@@ -60,21 +60,28 @@ namespace ProjektSOFULL.modul_5
             }
             lista_procesow.tworzenie_procesu(Lista_modulow_nadzorczych[0].nazwa, int.Parse(Lista_modulow_nadzorczych[0].nazwa) - 1, Lista_modulow_nadzorczych[0].memory.Count());
             lista_procesow.tworzenie_procesu(Lista_modulow_nadzorczych[1].nazwa, int.Parse(Lista_modulow_nadzorczych[1].nazwa) - 1, Lista_modulow_nadzorczych[1].memory.Count());
+            int i = 1;
             lista_procesow.grupy_procesow[0].running = true;
             while (true)
             {
+                i = 1;
                 try
                 {
-                    if (lista_procesow.grupy_procesow[0].running)
-                    {
-                        proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[0], CPU);
-                    }
-
-
-                    if (lista_procesow.grupy_procesow[1].running)
-                    {
-                        proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[1], CPU);
-                    }
+                    if (lista_procesow.grupy_procesow.Count >= i)
+                        if (i == 1)
+                        {
+                            lista_procesow.grupy_procesow[0].running = true;
+                            if (lista_procesow.grupy_procesow[0].running)
+                            {
+                                proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[0], CPU);
+                            }
+                        }
+                    i++;
+                    if (lista_procesow.grupy_procesow.Count >= i)
+                        if (lista_procesow.grupy_procesow[1].running)
+                        {
+                            proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[1], CPU);
+                        }
                 }
                 catch (System.Exception ex)
                 {
