@@ -13,6 +13,8 @@ namespace ProjektSOFULL.modul_5
         public modul_5.Interpreter interpreter;
         public List<modul_5.Proces_nadzorczy> Lista_modulow_nadzorczych = new List<modul_5.Proces_nadzorczy>();
         public modul_5.Ladowanie proces_ladowania = new modul_5.Ladowanie();
+        modul_3.Procesy lista_procesow = new modul_3.Procesy();
+        modul_5.Ladowanie _ladowanie = new modul_5.Ladowanie();
         Form1 currentForm = (Form1)Form1.ActiveForm;
         public IPLRTN()
         {
@@ -59,7 +61,7 @@ namespace ProjektSOFULL.modul_5
                             if (proces_ladowania._procesy.grupy_procesow[0] != null){
                                 if (proces_ladowania._procesy.grupy_procesow[0].running)
                                 {
-                                    proces_ladowania.job(Lista_modulow_nadzorczych[0], CPU);
+                                    proces_ladowania.job(_ladowanie._procesy, Lista_modulow_nadzorczych[0], CPU);
                                 }
                             }
                             else {
@@ -67,7 +69,7 @@ namespace ProjektSOFULL.modul_5
                                 {
                                     if (proces_ladowania._procesy.grupy_procesow[1].running)
                                     {
-                                        proces_ladowania.job(Lista_modulow_nadzorczych[1], CPU);
+                                        proces_ladowania.job(_ladowanie._procesy,Lista_modulow_nadzorczych[1], CPU);
                                     }
                                 }
                             }

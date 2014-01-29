@@ -71,15 +71,17 @@ namespace ProjektSOFULL.modul_5
             }
             void podziel(int a, ref modul_1.Procesor CPU)
             {
+                Form1 currentForm = (Form1)Form1.ActiveForm;
                 try
                 {
 
-                    Form1 currentForm = (Form1)Form1.ActiveForm;
+                   
                     CPU.set_r0(CPU.get_r0() / a);
                     currentForm.SetText("podzielono przez " + a);
                 }
                 catch (DivideByZeroException ex)
                 {
+                    currentForm.SetText(ex.StackTrace);
                     zakoncz_blad();
                 }
 

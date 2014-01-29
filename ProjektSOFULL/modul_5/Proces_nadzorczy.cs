@@ -9,8 +9,8 @@ namespace ProjektSOFULL.modul_5
     public class Proces_nadzorczy
     {
         public string nazwa = "";
-        string wejscie = "*IN";
-        string wyjscie = "*OUT";
+        //string wejscie = "*IN";
+        //string wyjscie = "*OUT";
         public List<string> memory;
     }
 }

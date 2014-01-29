@@ -7,17 +7,23 @@ using System.Threading.Tasks;
 namespace ProjektSOFULL.modul_5
 {
        public class Ladowanie
-        {
-            Interpreter _interpreter = new Interpreter();
-           public  modul_3.Procesy _procesy = new modul_3.Procesy();
-            modul_1.SRT_zawiadowca zawiadowca = new modul_1.SRT_zawiadowca();
+       {
+           Interpreter _interpreter = new Interpreter();
+           public modul_3.Procesy _procesy;
+           modul_1.SRT_zawiadowca zawiadowca;
+           public Ladowanie()
+           {
+               _interpreter = new Interpreter();
+               _procesy = new modul_3.Procesy();
+               zawiadowca = new modul_1.SRT_zawiadowca();
+           }
+
             public void Load(Proces_nadzorczy Nadzorca, modul_1.Procesor CPU)
             {
 
                 _procesy.tworzenie_procesu(Nadzorca.nazwa, int.Parse(Nadzorca.nazwa)-1, Nadzorca.memory.Count());
 
                 string temp;
-                bool skok= false;
                 int adres_skoku=0;
                 for (int i = _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].cpu_stan[4]; i <= Nadzorca.memory.Count(); i++)
                 {
@@ -42,7 +48,7 @@ namespace ProjektSOFULL.modul_5
             {
                 return a;
             }
-            public void job(modul_5.Proces_nadzorczy proces_nadzorczy, modul_1.Procesor CPU)
+            public void job(modul_3.Procesy lista,modul_5.Proces_nadzorczy proces_nadzorczy, modul_1.Procesor CPU)
             {
 
                 string aktualnaLinia=proces_nadzorczy.memory.ElementAt(0);
@@ -50,7 +56,7 @@ namespace ProjektSOFULL.modul_5
 
                 if (!aktualnaLinia.StartsWith("$JOB"))
                 {
-                    expunge();
+                    expunge(lista,proces_nadzorczy);
                     return;
                 }
                 string[] daneJob = aktualnaLinia.Split(',');
@@ -62,11 +68,11 @@ namespace ProjektSOFULL.modul_5
                       }
                  */
                 //    wielkosc_pamieci = Convert.ToInt32(daneJob[1]);
-                scan(daneJob[2]);
-                scan(daneJob[3]);
+                //scan(daneJob[2]);
+               // scan(daneJob[3]);
                 Load(proces_nadzorczy,CPU);
             }
-            private bool scan(string dane)
+           /* private bool scan(string dane)
             {
                 if (!dane.StartsWith("IN"))
                 {
@@ -93,13 +99,16 @@ namespace ProjektSOFULL.modul_5
 
                 return false;
             }
-            private void expunge()
+            */
+            private void expunge(modul_3.Procesy lista_procesow, Proces_nadzorczy Nadzorca)
             {
                 //string[] a = pobierzPCBzRunning();
                 // string nazwa= a[1];
                 // if(!nazwa.startsWith('*')){ 
-                //  zatrzymajProces(); 
-                //  usunProces();  
+
+                lista_procesow.grupy_procesow.RemoveAt(int.Parse(Nadzorca.nazwa));
+                //zatrzymajProces(); 
+                //usunProces();  
                 //  if(czyPrzydzielonoPamiec()){
                 //  zerujKluczeOchronyPamieci();
                 //  zwolnijPamiec();
