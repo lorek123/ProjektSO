@@ -44,42 +44,36 @@ namespace ProjektSOFULL.modul_5
                     {
                         currentForm.set_drukarka2("Wprowadz kod programu");
                         currentForm.set_drukarka1("Wprowadz kod programu");
-                    } else
-                    if (String.IsNullOrEmpty(currentForm.get_czytnik1().ElementAt(0)))
-                    {
-                        currentForm.set_drukarka1("Wprowadz kod programu");
                     }
                     else
-                    {
-                        currentForm.set_drukarka2("Wprowadz kod programu");
+                        if (String.IsNullOrEmpty(currentForm.get_czytnik1().ElementAt(0)))
+                        {
+                            currentForm.set_drukarka1("Wprowadz kod programu");
+                        }
+                        else
+                        {
+                            currentForm.set_drukarka2("Wprowadz kod programu");
 
-                    }
+                        }
                     Thread.Sleep(1000);
                 }
             }
-            proces_ladowania._procesy.grupy_procesow.Add(new modul_1.Proces());
-            proces_ladowania._procesy.grupy_procesow.Add(new modul_1.Proces());
-            proces_ladowania._procesy.grupy_procesow[0].running = true;
+            lista_procesow.tworzenie_procesu(Lista_modulow_nadzorczych[0].nazwa, int.Parse(Lista_modulow_nadzorczych[0].nazwa) - 1, Lista_modulow_nadzorczych[0].memory.Count());
+            lista_procesow.tworzenie_procesu(Lista_modulow_nadzorczych[1].nazwa, int.Parse(Lista_modulow_nadzorczych[1].nazwa) - 1, Lista_modulow_nadzorczych[1].memory.Count());
+            lista_procesow.grupy_procesow[0].running = true;
             while (true)
             {
                 try
                 {
-                    if (proces_ladowania._procesy.grupy_procesow.Any())
+                    if (lista_procesow.grupy_procesow[0].running)
                     {
-                        if (proces_ladowania._procesy.grupy_procesow[0].running)
-                        {
-                            proces_ladowania.job(_ladowanie._procesy, Lista_modulow_nadzorczych[0], CPU);
-                        }
+                        proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[0], CPU);
                     }
-                    else
+
+
+                    if (lista_procesow.grupy_procesow[1].running)
                     {
-                        if (proces_ladowania._procesy.grupy_procesow.Any())
-                        {
-                            if (proces_ladowania._procesy.grupy_procesow[1].running)
-                            { 
-                                proces_ladowania.job(_ladowanie._procesy, Lista_modulow_nadzorczych[1], CPU);
-                            }
-                        }
+                        proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[1], CPU);
                     }
                 }
                 catch (System.Exception ex)

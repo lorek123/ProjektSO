@@ -20,19 +20,6 @@ namespace ProjektSOFULL
             Application.Run(new Form1());
         }
 
-
-        /*
-         * Proces testowy = new Proces("Testowy", 10, 0);
-        *SRT_zawiadowca planista = new SRT_zawiadowca(testowy);
-        *Semafor x = new Semafor();
-        */
-
-        /*
-         * Proces example = new Proces("x", 10, 10);
-         * SRT_zawiadowca planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
-         * planista = new SRT_zawiadowca(ref example, ref CPU_man.grupy_procesow);
-         */
-
         /*Wykonywanie operacji systemu*/
         public static void system_up()
         {

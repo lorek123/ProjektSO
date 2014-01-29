@@ -17,14 +17,8 @@ namespace ProjektSOFULL.modul_1
 
         Form1 currentForm = (Form1)Form1.ActiveForm;
 
-
-        
         /*glowna czesc algorytmu*/
-        public SRT_zawiadowca()
-        {
-            
-            
-        }
+        public SRT_zawiadowca() {  }
 
         public void srt(List<Proces> grupy_procesow, Procesor cpu)
         {
@@ -32,12 +26,12 @@ namespace ProjektSOFULL.modul_1
             {
                 if (x.blocked == false && x.stopped == false)
                 {
-                    oblicz_czas(x);
+                    oblicz_czas(x); 
                 }
             }
             currentForm.SetText("SRT: Obliczone nowe czasy przewidywane do konca procesow");
             Proces run = grupy_procesow[proces_aktywny(grupy_procesow)];
-            proces_indeks = min_czas(run, grupy_procesow);
+            proces_indeks = min_czas(ref run, grupy_procesow);
             if (proces_indeks >= 0)
             {
                 if (grupy_procesow[proces_indeks] != run)
@@ -69,6 +63,7 @@ namespace ProjektSOFULL.modul_1
                 x.proces_estimated_time = tau;
                 x.czy_sprawdzony = true;
             }
+            currentForm.SetText("oblicz_czas: Nowy przewidywany czas dla procesu " + x.proces_name + " wynosi " + x.proces_estimated_time.ToString());
         }
          /*wyszukiwanie aktywnego procesu*/
         private int proces_aktywny(List<Proces> lista)
@@ -81,10 +76,9 @@ namespace ProjektSOFULL.modul_1
             return a;
         }
         /*wyszukiwanie minimalnego czasu procesu*/
-        int min_czas(Proces a, List<Proces> grupy_procesow)
+        int min_czas(ref Proces a, List<Proces> grupy_procesow)
         {
             currentForm.SetText("SRT: Wyszukiwanie min czasu procesu");
-            int x = -1;
             int min = a.proces_estimated_time;
             if (grupy_procesow.Count() > 0)
             {
@@ -93,7 +87,8 @@ namespace ProjektSOFULL.modul_1
                     if (min > p.proces_estimated_time && p.blocked == false && p.stopped == false)
                     {
                         min = p.proces_estimated_time;
-                        x = grupy_procesow.IndexOf(p);
+                        proces_indeks = grupy_procesow.IndexOf(p);
+                       
                     }
                 }
             }
@@ -101,7 +96,8 @@ namespace ProjektSOFULL.modul_1
             {
                 currentForm.SetText("SRT: Nie ma zadnego procesu na liscie");
             }
-            return x;
+            currentForm.SetText("SRT: najmniejsza wartosc " + min + " indeks tego procesu to " + proces_indeks);
+            return proces_indeks;
         }
     }
 }

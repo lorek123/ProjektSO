@@ -70,11 +70,11 @@ namespace ProjektSOFULL.modul_1
             currentForm.SetText("PROCESOR: Nowa wartosc r3: " + value.ToString());
         }
 
-        public void set_lr(int value)
+        public void set_lr(int value, string name)
         {
             Form1 currentForm = (Form1)Form1.ActiveForm;
             lr = value;
-            currentForm.SetText("PROCESOR: Nowa wartosc lr: " + value.ToString());
+            currentForm.SetText("PROCESOR: Nowa wartosc lr dla procesu " + name + " to : " + value.ToString());
         }
     }
 }

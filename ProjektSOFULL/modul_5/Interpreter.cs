@@ -74,8 +74,6 @@ namespace ProjektSOFULL.modul_5
                 Form1 currentForm = (Form1)Form1.ActiveForm;
                 try
                 {
-
-                   
                     CPU.set_r0(CPU.get_r0() / a);
                     currentForm.SetText("podzielono przez " + a);
                 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace ProjektSOFULL.modul_5
 {
@@ -18,19 +18,21 @@ namespace ProjektSOFULL.modul_5
             zawiadowca = new modul_1.SRT_zawiadowca();
         }
 
-        public void Load(Proces_nadzorczy Nadzorca, modul_1.Procesor CPU)
+        public void Load(Proces_nadzorczy Nadzorca, modul_1.Procesor CPU, modul_3.Procesy lista)
         {
-
-            _procesy.tworzenie_procesu(Nadzorca.nazwa, int.Parse(Nadzorca.nazwa) - 1, Nadzorca.memory.Count());
-
+            _procesy = lista;
+            Form1 currentForm = (Form1)Form1.ActiveForm;
             string temp;
             int adres_skoku = 0;
-            for (int i = _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].cpu_stan[4]; i <= Nadzorca.memory.Count(); i++)
+            int cpu_value = 0;
+            for (int i = _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].cpu_stan[4]; i < Nadzorca.memory.Count(); i++)
             {
-
                 temp = Nadzorca.memory[i];
+                currentForm.SetText("Akutalna linia " + temp +"!!!");
+                Thread.Sleep(1500);
                 _interpreter.find(temp, CPU, ref Nadzorca.memory, ref adres_skoku);
-                CPU.set_lr(CPU.get_lr() + 1);
+                cpu_value = CPU.get_lr() + 1;
+                CPU.set_lr(cpu_value, _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].proces_name);
                 zawiadowca.srt(_procesy.grupy_procesow, CPU);
                 if (!_procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].running)
                 {
@@ -52,15 +54,14 @@ namespace ProjektSOFULL.modul_5
         {
             Form1 currentForm = (Form1)Form1.ActiveForm;
             string aktualnaLinia = proces_nadzorczy.memory.ElementAt(0);
-            currentForm.SetText("Wykonuje metode job dla " + proces_nadzorczy.nazwa);
-            if (!aktualnaLinia.StartsWith("$JOB"))
+            if (aktualnaLinia.StartsWith("$JOB"))
             {
                 expunge(lista, proces_nadzorczy);
                 return;
             }
-            string[] daneJob = aktualnaLinia.Split(',');
-            daneJob[1].TrimEnd('K');
-            Load(proces_nadzorczy, CPU);
+           // string[] daneJob = aktualnaLinia.Split(' ');
+            //daneJob[1].TrimEnd('K');
+            Load(proces_nadzorczy, CPU, lista);
         }
 
         private void expunge(modul_3.Procesy lista_procesow, Proces_nadzorczy Nadzorca)

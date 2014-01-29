@@ -55,11 +55,15 @@ namespace ProjektSOFULL
         /*pobranie wartosci czytnikow*/
         public string[] get_czytnik1()
         {
+            pomocniczy = "sadsadsa\nasd\naef\nauihe\neohfes\noasebfs";
+            czytnik1_string = pomocniczy.Split('\n');
             return czytnik1_string;
         }
 
         public string[] get_czytnik2()
         {
+            pomocniczy = "sadsadsa\nasd\naef\nauihe";
+            czytnik2_string = pomocniczy.Split('\n');
             return czytnik2_string;
         }
 
@@ -84,7 +88,6 @@ namespace ProjektSOFULL
             {
                 SetTextDelegate d = new SetTextDelegate(set_drukarka2);
                 this.Invoke(d, new object[] { text });
-
             }
             else
                 this.drukarka2.AppendText(text + "\n");
@@ -113,15 +116,12 @@ namespace ProjektSOFULL
             drukarka2.Clear();
         }
 
-
         private void ApplicationExitHandler(Object sender, EventArgs e)
         {
             system.Abort();
             System.Text.StringBuilder messageBoxCS = new System.Text.StringBuilder();
             messageBoxCS.AppendFormat("Wylaczanie systemu");
-            MessageBox.Show(messageBoxCS.ToString(), "FormClosing Event");
-            
+            MessageBox.Show(messageBoxCS.ToString(), "FormClosing Event"); 
         }
-       
     }
 }

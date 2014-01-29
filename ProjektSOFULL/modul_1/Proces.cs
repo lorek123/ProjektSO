@@ -56,16 +56,17 @@ namespace ProjektSOFULL.modul_1
 
         public void cpu_stan_wczytaj(Procesor x)
         {
+            currentForm.SetText("|||||||WCZYTUJE STAN PROCESORA|||||||");
             x.set_r0(cpu_stan[0]);
             x.set_r1(cpu_stan[1]);
             x.set_r2(cpu_stan[2]);
             x.set_r3(cpu_stan[3]);
-            x.set_lr(cpu_stan[4]);
+            x.set_lr(cpu_stan[4], this.proces_name);
         }
 
         public void wyswietl()
         {
-            currentForm.SetText("DANE PROCESU: Nazwa " + proces_name + "\nPET: " + proces_estimated_time);
+            currentForm.SetText("DANE PROCESU: Nazwa " + this.proces_name + "\nPET: " + this.proces_estimated_time);
 
         }
     }
