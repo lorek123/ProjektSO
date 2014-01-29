@@ -73,6 +73,7 @@ namespace ProjektSOFULL.modul_5
                         foreach (modul_1.Proces x in lista_procesow.grupy_procesow)
                         {
                             x.running = true;
+                            x.cpu_stan_wczytaj(CPU);
                             break;
                         }
                     foreach (modul_1.Proces x in lista_procesow.grupy_procesow)

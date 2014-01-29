@@ -70,8 +70,6 @@ namespace ProjektSOFULL.modul_5
                 expunge(lista, proces_nadzorczy);
                 return;
             }
-           // string[] daneJob = aktualnaLinia.Split(' ');
-            //daneJob[1].TrimEnd('K');
             Load(proces_nadzorczy, CPU, lista);
         }
 
