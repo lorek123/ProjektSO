@@ -24,18 +24,23 @@ namespace ProjektSOFULL.modul_5
             Form1 currentForm = (Form1)Form1.ActiveForm;
             string temp;
             int adres_skoku = 0;
+            int x = int.Parse(Nadzorca.nazwa) - 1;
+            if (x >= _procesy.grupy_procesow.Count)
+            {
+                x = _procesy.znalezienie_procesu();
+            }
             int cpu_value = 0;
-            for (int i = _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].cpu_stan[4]; i < Nadzorca.memory.Count(); i++)
+
+            for (int i = _procesy.grupy_procesow[x].cpu_stan[4]; i < Nadzorca.memory.Count(); i++)
             {
                 temp = Nadzorca.memory[i];
-                Thread.Sleep(500);
                 if (cpu_value < Nadzorca.memory.Count() - 1)
                 {
                     _interpreter.find(temp, CPU, ref Nadzorca.memory, ref adres_skoku);
                     cpu_value = CPU.get_lr() + 1;
-                    CPU.set_lr(cpu_value, _procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].proces_name);
+                    CPU.set_lr(cpu_value, _procesy.grupy_procesow[x].proces_name);
                     zawiadowca.srt(_procesy.grupy_procesow, CPU);
-                    if (!_procesy.grupy_procesow[int.Parse(Nadzorca.nazwa) - 1].running)
+                    if (!_procesy.grupy_procesow[x].running)
                     {
                         break;
                     }

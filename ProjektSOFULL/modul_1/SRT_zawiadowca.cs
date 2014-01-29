@@ -65,7 +65,6 @@ namespace ProjektSOFULL.modul_1
                 x.proces_estimated_time = tau;
                 x.czy_sprawdzony = true;
             }
-            currentForm.SetText("oblicz_czas: Nowy przewidywany czas dla procesu " + x.proces_name + " wynosi " + x.proces_estimated_time.ToString());
         }
          /*wyszukiwanie aktywnego procesu*/
         private int proces_aktywny(List<Proces> lista)
@@ -98,7 +97,6 @@ namespace ProjektSOFULL.modul_1
             {
                 currentForm.SetText("SRT: Nie ma zadnego procesu na liscie");
             }
-            currentForm.SetText("SRT: najmniejsza wartosc " + min + " indeks tego procesu to " + proces_indeks);
             return proces_indeks;
         }
     }

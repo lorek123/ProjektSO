@@ -14,6 +14,7 @@ namespace ProjektSOFULL.modul_5
         public List<modul_5.Proces_nadzorczy> Lista_modulow_nadzorczych = new List<modul_5.Proces_nadzorczy>();
         public modul_5.Ladowanie proces_ladowania = new modul_5.Ladowanie();
         modul_3.Procesy lista_procesow = new modul_3.Procesy();
+        int licznik;
         modul_5.Ladowanie _ladowanie = new modul_5.Ladowanie();
         Form1 currentForm = (Form1)Form1.ActiveForm;
         public IPLRTN()
@@ -60,28 +61,29 @@ namespace ProjektSOFULL.modul_5
             }
             lista_procesow.tworzenie_procesu(Lista_modulow_nadzorczych[0].nazwa, int.Parse(Lista_modulow_nadzorczych[0].nazwa) - 1, Lista_modulow_nadzorczych[0].memory.Count());
             lista_procesow.tworzenie_procesu(Lista_modulow_nadzorczych[1].nazwa, int.Parse(Lista_modulow_nadzorczych[1].nazwa) - 1, Lista_modulow_nadzorczych[1].memory.Count());
-            int i = 1;
+            licznik = lista_procesow.grupy_procesow.Count;
             lista_procesow.grupy_procesow[0].running = true;
+            int i = 0;
             while (true)
             {
-                i = 1;
                 try
                 {
-                    if (lista_procesow.grupy_procesow.Count >= i)
-                        if (i == 1)
+                    i = 0;
+                    if (licznik != lista_procesow.grupy_procesow.Count)
+                        foreach (modul_1.Proces x in lista_procesow.grupy_procesow)
                         {
-                            lista_procesow.grupy_procesow[0].running = true;
-                            if (lista_procesow.grupy_procesow[0].running)
-                            {
-                                proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[0], CPU);
-                            }
+                            x.running = true;
+                            break;
                         }
-                    i++;
-                    if (lista_procesow.grupy_procesow.Count >= i)
-                        if (lista_procesow.grupy_procesow[1].running)
+                    foreach (modul_1.Proces x in lista_procesow.grupy_procesow)
+                    {
+                        if (lista_procesow.grupy_procesow[i].running)
                         {
-                            proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[1], CPU);
+                            proces_ladowania.job(lista_procesow, Lista_modulow_nadzorczych[int.Parse(lista_procesow.grupy_procesow[i].proces_name) - 1], CPU);
+                            break;
                         }
+                        i++;
+                    }
                 }
                 catch (System.Exception ex)
                 {

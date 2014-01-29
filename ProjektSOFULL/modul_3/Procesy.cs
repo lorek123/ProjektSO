@@ -51,8 +51,6 @@ namespace ProjektSOFULL.modul_3
             {
                 grupy_procesow.Add(new modul_1.Proces(nazwa, czas, numer));
                 currentForm.SetText("PROCESY: Utworzono proces" + nazwa);
-               // tekst.Zatrzymanie_zlecenia("Utworzono proces" + nazwa);
-
             }
         }
 
@@ -73,30 +71,22 @@ namespace ProjektSOFULL.modul_3
                     {
                         proces.running = false;
                         currentForm.SetText("Zatrzymano proces" + nazwa);
-                       // tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
                     }
                     break;
 
                 }
-               /* else
-                {
-                    tekst.Komunikat_bledu();
-                    break;
-                }*/
-
             }
             if (istnieje)
             {
                 grupy_procesow.RemoveAt(licznik);
-                 currentForm.SetText("Usunieto proces" + nazwa);
-                //tekst.Zatrzymanie_zlecenia("Usunieto proces" + nazwa);
+                currentForm.SetText("Usunieto proces" + nazwa);
             }
 
         }
         // znalezienie procesu, ktory w danym momencie jest uruchomiony
-        public void znalezienie_procesu()
+        public int znalezienie_procesu()
         {
-            istnieje = false;
+           // istnieje = false;
             int licznik = 0;
             int number;
             string name_search;
@@ -104,16 +94,14 @@ namespace ProjektSOFULL.modul_3
             {
                 if (proces.running)
                 {
-                    istnieje = true;
+                   // istnieje = true;
                     licznik = grupy_procesow.IndexOf(proces);
                     currentForm.SetText("Znaleziono proces" + proces.proces_name + "w grupie o indeksie" + proces.group_indeks);
-                    //tekst.Zatrzymanie_zlecenia("Znaleziono proces" + proces.proces_name + "w grupie o indeksie" + proces.group_indeks);
                     break;
-
                 }
             }
 
-            if (istnieje)
+            /*if (istnieje)
             {
                 name_search = grupy_procesow[licznik].proces_name;
                 number = grupy_procesow[licznik].group_indeks;
@@ -122,17 +110,16 @@ namespace ProjektSOFULL.modul_3
             else
             {
                 tekst.Komunikat_bledu();
-            }
-
+            }*/
+            return licznik;
         }
-        // znalezienie po nazwie i numerze grupy i zwrocenie konkretnego procesu
-        //nie wiem czemu tak
-        
+
+
         public modul_1.Proces znalezienie_nazwy(string nazwa, int grupa)
         {
             istnieje = false;
             int licznik = 0;
-            foreach (modul_1.Proces proces in  grupy_procesow)
+            foreach (modul_1.Proces proces in grupy_procesow)
             {
                 if (proces.group_indeks == grupa && proces.proces_name == nazwa)
                 {
@@ -148,14 +135,7 @@ namespace ProjektSOFULL.modul_3
                 return grupy_procesow[licznik];
             }
             else
-            {
-                
-                tekst.Komunikat_bledu();
                 return null;
-                
-            }
-
-
         }
 
         public modul_1.Proces znalezienie_nazwy()
@@ -169,54 +149,35 @@ namespace ProjektSOFULL.modul_3
                     istnieje = true;
                     licznik = grupy_procesow.IndexOf(proces);
                     break;
-
                 }
             }
-
             if (istnieje)
             {
                 return grupy_procesow[licznik];
             }
             else
-            {
-
-                tekst.Komunikat_bledu();
                 return null;
-
-            }
-
-
         }
-         
+
 
         //zatrzymanie procesu
         public void zatrzymanie_procesu(string nazwa, int numer)
         {
             int licznik = 0;
-
             foreach (modul_1.Proces proces in grupy_procesow)
             {
-
                 currentForm.SetText("proces nazwa i grupa : " + proces.proces_name + " " + proces.group_indeks + "WYSZUKIWANE: " + nazwa + " " + numer);
                 if (proces.group_indeks == numer && proces.proces_name == nazwa)
                 {
                     licznik = grupy_procesow.IndexOf(proces);
                     if (proces.running)
                     {
-                     
+
                         proces.running = false;
                         currentForm.SetText("Zatrzymano proces" + nazwa);
-                        //tekst.Zatrzymanie_zlecenia("Zatrzymano proces" + nazwa);
                     }
                     break;
-
                 }
-               /* else
-                {
-                    tekst.Komunikat_bledu();
-                    break;
-                }*/
-
             }
         }
 
@@ -234,25 +195,11 @@ namespace ProjektSOFULL.modul_3
                     {
                         proces.running = true;
                         currentForm.SetText("Uruchomiono proces" + nazwa);
-                       // tekst.Zatrzymanie_zlecenia("Uruchomiono proces" + nazwa);
                     }
                     break;
-
                 }
-                else
-                {
-                    tekst.Komunikat_bledu();
-                    break;
-                }
-
             }
-
         }
-       /* // Zatrzymanie zlecenia i powiadomienie programu nadzorczego
-        public void Zakonczenie_realizacji_zlecenia(int grupa)
-        {
-            tekst.Wysylaj_Komunikat("*IBSUP", grupa, "KONIEC ZLECENIA");
-        } */
     }
-    
+
 }
